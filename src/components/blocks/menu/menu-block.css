@@ -1,0 +1,22 @@
+.ant-menu-item-icon {
+    height: 14px;
+    width: 14px;
+}
+
+.ant-menu-item-icon svg {
+    height: 100%;
+    width: 100%;
+}
+.menu__item .ant-menu-item-icon svg {
+    fill: var(--primary-light-9);
+}
+
+.menu__item .ant-menu-title-content {
+    color: var(--neutral-gray-10);
+}
+
+@media (max-width: 768px) {
+    .menu {
+        padding: 66px 8px 0;
+    }
+}
