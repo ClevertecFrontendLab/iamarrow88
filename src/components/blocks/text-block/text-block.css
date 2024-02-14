@@ -4,7 +4,6 @@
     background: var(--character-light-primary-inverse);
     border-radius: 2px;
     box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.04);
-
 }
 
 .pros {
@@ -25,14 +24,12 @@
 
 .list .list__item:before {
     margin-right: 5px;
-    content: "—";
+    content: '—';
 }
 
 .about {
     margin-bottom: 16px;
     padding: 24px;
-
-    /* height: 126px; */
     color: var(--character-light-title-85);
     font-weight: 500;
     font-size: 20px;
@@ -52,5 +49,3 @@
         padding: 16px;
     }
 }
-
-

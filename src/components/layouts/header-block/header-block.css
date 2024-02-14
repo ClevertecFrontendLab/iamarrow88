@@ -41,7 +41,7 @@
 }
 
 .title__settings {
- gap: 10px;
+    gap: 10px;
 }
 
 @media (max-width: 1020px) {
@@ -55,7 +55,6 @@
     }
     .content__wrapper {
         justify-content: space-between;
-
     }
     .content__wrapper--uncollapsed,
     .content__wrapper--collapsed {
@@ -97,5 +96,8 @@
     .pathLine {
         margin-bottom: 4px;
     }
-}
 
+    .settings__outline {
+        margin-top: -6px;
+    }
+}
