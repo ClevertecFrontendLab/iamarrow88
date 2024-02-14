@@ -1,0 +1,36 @@
+.logo {
+    position: absolute;
+    z-index: 10;
+    max-height: 64px;
+    max-width: 205px;
+}
+
+.logo--collapsed {
+    top: 49px;
+    left: 18px;
+}
+
+.logo--uncollapsed {
+    top: 44px;
+    left: 29px;
+}
+
+.logo img {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .logo {
+        max-height: 18px;
+        max-width: 72px;
+    }
+
+    .logo--collapsed {
+        display: none;
+    }
+
+    .logo--uncollapsed {
+        top: 16px;
+        left: 17px;
+    }
+}

@@ -1,0 +1,25 @@
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 41px 24px 41px 39px;
+    height: 209px;
+    width: 100%;
+}
+
+.reviews-link {
+    margin-bottom: 10px;
+}
+
+@media (max-width: 540px) {
+    .footer {
+        flex-direction: column-reverse;
+        gap: 33px;
+        padding: 0 16px 42px;
+        height: auto;
+    }
+
+    .reviews-link {
+        margin: 0 auto;
+    }
+}
