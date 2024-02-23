@@ -1,10 +1,10 @@
-.layout {
+.main-page {
+    position: relative;
     display: flex;
     margin: 0 auto;
     min-height: 1024px;
     max-width: 1440px;
     height: 100%;
-    width: 100%;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -12,9 +12,22 @@
        object-fit: contain;
 }
 
+.main-page.main-page--collapsed .body-layout {
+    width: calc(100% - 64px);
+
+}
+
+.main-page.main-page--uncollapsed .body-layout {
+    width: calc(100% - 208px);
+
+}
+
 .sider {
-    position: relative;
-    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 6;
     box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
 }
 
@@ -31,7 +44,7 @@
 }
 
 .trigger__wrapper {
-    position: absolute;
+    position: fixed;
     top: 50%;
     transform: translateY(-50%);
     left: -1px;
@@ -40,6 +53,14 @@
     width: 20px;
     -webkit-filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.15));
             filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.15));
+}
+
+.trigger__wrapper--uncollapsed {
+    left: 208px;
+}
+
+.trigger__wrapper--collapsed {
+    left: 64px;
 }
 
 .trigger {
