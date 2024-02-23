@@ -12,7 +12,7 @@ import {
 import ExitIcon from '@components/icons/exit-icon/exit-icon.tsx';
 import CustomIcon from '@components/icons/custom-icon/custom-icon.tsx';
 
-import { allProps, propsInterface } from '@types/content-types.ts';
+import {allProps, iconPropsInterface} from '../../../customTypes/content-types.ts';
 
 const DynamicIcon = ({
     type,
@@ -27,9 +27,9 @@ const DynamicIcon = ({
     style?: CSSProperties;
     isCollapsed?: boolean;
     className?: string;
-    callback?: (value: { initialCollapsed: boolean }) => void;
+    callback?: (value: boolean) => void;
 }) => {
-    const filteredProps: Partial<propsInterface> = {};
+    const filteredProps: Partial<iconPropsInterface> = {};
 
     const [collapsed, setCollapsed] = useState(isCollapsed);
     filteredProps.className = props?.props?.className;

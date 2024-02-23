@@ -1,10 +1,9 @@
-import { CSSProperties, ReactNode } from 'react';
 import { Breadcrumb, Button, Layout } from 'antd';
 import { SettingOutlined } from '@ant-design/icons';
 const { Header } = Layout;
 import DynamicIcon from '@components/icons/dynamic-icon/dynamic-icon.tsx';
 import { headerTitle1, headerTitle2 } from '@constants/content/main-page/content-main-page.tsx';
-import { propsInterface } from '@types/content-types.ts';
+import { propsInterface } from '../../../customTypes/content-types.ts';
 import './header-block.css';
 
 const HeaderBlock = ({
