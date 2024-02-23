@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { Button, Layout, Space } from 'antd';
 const { Content, Sider } = Layout;
-import bgImage from '/img/main_bg_light.jpg';
+import bgImage from '../../assets/img/main/main_bg_light.jpg';
 import {
     list,
     about,
@@ -25,7 +25,7 @@ export const MainPage: React.FC = () => {
     const isBigTablet = useMediaQuery({ query: '(min-width: 1020px)' });
     const isTablet = useMediaQuery({ query: '(min-width: 834px)' });
 
-    const menuAction = (value: { initialCollapsed: boolean }): void => {
+    const menuAction = (value: boolean ): void => {
         setCollapsed(value);
     };
 
@@ -43,10 +43,9 @@ export const MainPage: React.FC = () => {
     return (
         <>
             <Layout
-                className='layout'
+                className={collapsed ? 'main-page main-page--collapsed' : 'main-page main-page--uncollapsed'}
                 style={{
                     backgroundImage: `url(${bgImage})`,
-                    position: 'relative',
                 }}
             >
                 <Sider
