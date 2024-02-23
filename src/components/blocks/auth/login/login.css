@@ -1,0 +1,7 @@
+.login {
+    margin: 0 auto;
+    padding: 64px 85px 174px;
+    /*height: 742px;*/
+    /*width: 539px;*/
+    background-color: var(--neutral-gray-1);
+}

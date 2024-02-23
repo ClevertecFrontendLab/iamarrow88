@@ -1,0 +1,22 @@
+.entry-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 1024px;
+    max-width: 1440px;
+    height: 100%;
+    width: 100%;
+    background-image: url("../../assets/img/login/login_light.jpg");
+}
+
+.entry-logo {
+    max-height: 76px;
+    max-width: 309px;
+    height: 100vh;
+    width: 100vw;
+}
+
+.entry-logo img{
+    height: 100%;
+    width: 100%;
+}
