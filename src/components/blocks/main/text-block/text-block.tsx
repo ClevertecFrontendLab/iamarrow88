@@ -1,5 +1,5 @@
 import './text-block.css';
-import { list } from '@types/content-types.ts';
+import { list } from '../../../../customTypes/content-types.ts';
 
 const TextBlock = ({
     className,

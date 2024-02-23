@@ -28,11 +28,11 @@ export interface list {
 
 export interface allProps {
     type?: string;
-    props?: Partial<propsInterface>;
+    props?: Partial<iconPropsInterface>;
     style?: CSSProperties;
 }
 
-export interface propsInterface {
+export interface iconPropsInterface {
     className?: string;
     style?: CSSProperties;
     twoToneColor?: string;
@@ -42,4 +42,15 @@ export interface propsInterface {
     className: string;
     style: CSSProperties;
     icon?: ReactNode;
+}
+
+export interface initialTypesInterface {
+    isLoggedIn: boolean
+}
+
+export type isLogginInType = ('loggin/true' | 'loggin/false');
+
+export interface ActionsInterface {
+    type: isLogginInType,
+    payload: string
 }

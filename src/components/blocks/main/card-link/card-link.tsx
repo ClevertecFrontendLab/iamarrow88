@@ -2,7 +2,7 @@ import './card-link.css';
 import { Button } from 'antd';
 import { HeartFilled, IdcardOutlined } from '@ant-design/icons';
 import CustomIcon from '@components/icons/custom-icon/custom-icon.tsx';
-import { iconStylesInterface } from '@types/content-types.ts';
+import { iconStylesInterface } from '../../../../customTypes/content-types.ts';
 
 const CardLink = ({
     title,

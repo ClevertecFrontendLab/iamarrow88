@@ -1,7 +1,7 @@
 import DynamicIcon from '@components/icons/dynamic-icon/dynamic-icon.tsx';
 import { Menu } from 'antd';
 import './menu-block.css';
-import { MenuItemInterface, itemInstanseInterface } from '@types/content-types.ts';
+import { MenuItemInterface, itemInstanseInterface } from '../../../../customTypes/content-types.ts';
 
 const MenuBlock = ({
     isCollapsed,
@@ -29,7 +29,6 @@ const MenuBlock = ({
                     className='item__icon'
                 />
             );
-            console.log('here');
         }
 
         return item;

@@ -9,12 +9,12 @@ import {
     actionsCard,
     menuItems,
 } from '@constants/content/main-page/content-main-page.tsx';
-import Logo from '@components/blocks/logo/logo.tsx';
-import CardLink from '@components/blocks/card-link/card-link.tsx';
+import Logo from '@components/blocks/common/logo/logo.tsx';
+import CardLink from '@components/blocks/main/card-link/card-link.tsx';
 import FooterBlock from '@components/layouts/footer-block/footer-block.tsx';
-import TextBlock from '@components/blocks/text-block/text-block.tsx';
+import TextBlock from '@components/blocks/main/text-block/text-block.tsx';
 import HeaderBlock from '@components/layouts/header-block/header-block.tsx';
-import MenuBlock from '@components/blocks/menu/menu-block.tsx';
+import MenuBlock from '@components/blocks/main/menu/menu-block.tsx';
 import ExitIcon from '@components/icons/exit-icon/exit-icon.tsx';
 import DynamicIcon from '@components/icons/dynamic-icon/dynamic-icon.tsx';
 import './main-page.css';
