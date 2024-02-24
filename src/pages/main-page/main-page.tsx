@@ -18,6 +18,8 @@ import MenuBlock from '@components/blocks/main/menu/menu-block.tsx';
 import ExitIcon from '@components/icons/exit-icon/exit-icon.tsx';
 import DynamicIcon from '@components/icons/dynamic-icon/dynamic-icon.tsx';
 import './main-page.css';
+import {Link} from "react-router-dom";
+import {Paths} from "../../routes/paths.ts";
 
 export const MainPage: React.FC = () => {
     const isBigMobile = useMediaQuery({ query: '(min-width: 768px)' });
@@ -56,12 +58,58 @@ export const MainPage: React.FC = () => {
                     collapsedWidth={isBigMobile ? '64px' : '0px'}
                     theme={'light'}
                 >
-                    <Logo isCollapsed={collapsed} className={'logo'} />
+                    <Logo isCollapsed={collapsed} className={'logo'}/>
+                    <div className="buttons-nav">
+                        <Button type="primary">
+                            <Link to={Paths.Auth}>Авторизация</Link>
+                        </Button>
+                        <Button type="primary">
+                            <Link to={Paths.Registration}>Registration</Link>
+                        </Button>
+                        <Button type="primary">
+                            <Link to={Paths.ConfirmEmail}>ConfirmEmail</Link>
+                        </Button>
+
+                        <Button type="primary">
+                            <Link to={Paths.ChangePassword}>ChangePassword</Link>
+                        </Button>
+                        <Button type="primary">
+                            <Link to={Paths.CheckEmail}>CheckEmail</Link>
+                        </Button>
+                        <Button type="primary">
+                            <Link to={Paths.Result}>Result</Link>
+                        </Button>
+                        <Button type="primary">
+                            <Link to={Paths.LoginError}>LoginError</Link>
+                        </Button>
+                        <Button type="primary">
+                            <Link to={Paths.RegistrationSuccess}>RegistrationSuccess</Link>
+                        </Button>
+                        <Button type="primary">
+                            <Link to={Paths.RegistrationErrorUserExist}>RegistrationErrorUserExist</Link>
+                        </Button>
+                        <Button type="primary">
+                            <Link to={Paths.RegistrationError}>RegistrationError</Link>
+                        </Button>
+                        <Button type="primary">
+                            <Link to={Paths.RecoveryNoExist}>RecoveryNoExist</Link>
+                        </Button>
+                        <Button type="primary">
+                            <Link to={Paths.ErrorLogin}>ErrorLogin</Link>
+                        </Button>
+                        <Button type="primary">
+                            <Link to={Paths.ChangePasswordError}>ChangePasswordError</Link>
+                        </Button>
+                        <Button type="primary">
+                            <Link to={Paths.ChangePasswordSuccess}>ChangePasswordSuccess</Link>
+                        </Button>
+                    </div>
                     <MenuBlock
                         isCollapsed={collapsed}
                         itemsData={menuItems}
                         isBigMobile={isBigMobile}
                     />
+
                     <div
                         className={
                             collapsed ? 'menu__exit exit exit--collapsed' : 'menu__exit exit'
@@ -69,8 +117,9 @@ export const MainPage: React.FC = () => {
                     >
                         {exitButton}
                     </div>
+
                 </Sider>
-                <Layout style={{ position: 'relative' }} className='body-layout'>
+                <Layout style={{position: 'relative'}} className='body-layout'>
                     <div
                         className={
                             collapsed

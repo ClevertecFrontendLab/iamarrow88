@@ -1,22 +1,30 @@
-.entry-page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.entry-page,
+.blur {
     min-height: 1024px;
     max-width: 1440px;
     height: 100%;
     width: 100%;
+}
+
+.entry-page {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-image: url("../../assets/img/login/login_light.jpg");
 }
 
-.entry-logo {
-    max-height: 76px;
-    max-width: 309px;
-    height: 100vh;
-    width: 100vw;
+.blur {
+    position: absolute;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(12px);
+    background: rgba(121, 156, 213, 0.5);
 }
 
-.entry-logo img{
-    height: 100%;
-    width: 100%;
+.content-block {
+    position: relative;
+    z-index: 10;
 }
+
+
