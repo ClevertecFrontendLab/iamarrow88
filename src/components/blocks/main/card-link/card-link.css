@@ -1,3 +1,5 @@
+@import "../../../../styles/reset.css";
+
 .card-link {
     display: flex;
     flex-direction: column;

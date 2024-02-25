@@ -27,9 +27,6 @@ const Login = () => {
                 autoComplete="off"
                 className="login"
                 onFinish={onFinish}
-                style={{
-                    fontFamily: "inter, sans-serif"
-                }}
                 validateMessages={validateMessages}
             >
                 <Form.Item

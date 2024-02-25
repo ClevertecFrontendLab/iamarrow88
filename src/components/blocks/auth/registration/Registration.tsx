@@ -23,9 +23,6 @@ const Registration = () => {
                 autoComplete="off"
                 className="registration"
                 onFinish={onFinish}
-                style={{
-                    fontFamily: "inter, sans-serif"
-                }}
                 validateMessages={validateMessages}
             >
                 <Form.Item

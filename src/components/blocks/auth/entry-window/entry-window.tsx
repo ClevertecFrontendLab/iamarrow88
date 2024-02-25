@@ -34,8 +34,7 @@ const EntryWindow = ({children, selectedTab}: {children: ReactElement, selectedT
                     tabBarStyle={{
                         display: "flex",
                         justifyContent: "space-around",
-                        marginBottom: '24px',
-                        fontFamily: "Inter, sans-sarif"
+                        marginBottom: '24px'
                     }}
                 />
                 {children}

@@ -1,3 +1,5 @@
+@import "../../../../styles/reset.css";
+
 .entry-window {
     margin: 0 auto;
     padding: 64px 85px 144px;
@@ -37,8 +39,8 @@
 .ant-form-item.password input {
     height: 100%;
 }
-.ant-tabs-nav-wrap::before,
-.ant-tabs-nav-wrap::after {
+.ant-tabs-nav-wrap:before,
+.ant-tabs-nav-wrap:after {
     display: none;
 }
 
@@ -86,7 +88,6 @@
     justify-content: center;
     align-items: center;
     color: var(--character-light-primary-85);
-    font-family: 'Inter', sans-serif;
     font-size: 14px;
     font-weight: 400;
 }
@@ -95,7 +96,7 @@
     max-width: 100%;
 }
 
-.ant-tabs-tab-active::after {
+.ant-tabs-tab-active:after {
     position: absolute;
     bottom: 0;
     left: 0;

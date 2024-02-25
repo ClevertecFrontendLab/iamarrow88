@@ -1,3 +1,5 @@
+@import "../../../../styles/reset.css";
+
 .ant-menu-item-icon {
     height: 14px;
     width: 14px;
