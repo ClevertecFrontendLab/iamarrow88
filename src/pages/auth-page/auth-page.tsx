@@ -1,7 +1,7 @@
-import './entry-page.css';
+import './auth-page.css';
 import {Outlet} from "react-router-dom";
-//{componentName}: {componentName: "Login" | "Registration" | "Recovery"}
-const EntryPage = () => {
+//{componentName}: {componentName: "Login" | "Registration" | "ChangePassword"}
+const AuthPage = () => {
     return (
         <div className='entry-page'>
             <div className="blur"></div>
@@ -12,4 +12,4 @@ const EntryPage = () => {
     );
 };
 
-export default EntryPage;
+export default AuthPage;
