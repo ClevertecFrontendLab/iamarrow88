@@ -40,11 +40,13 @@ const ErrorWindow = ({icon,
 
     }
 
+    const buttonClassNames = icon === 'serverTroubles' ? 'error-window__btn serverTroubles' : 'error-window__btn';
+
     return <div className="error-window">
         {iconElement}
-        <h2>{title}</h2>
-        <p>{description}</p>
-        <Button type="primary">{buttonName}</Button>
+        <h2 className="error-window__title">{title}</h2>
+        <p className="error-window__description">{description}</p>
+        <Button type="primary" className={buttonClassNames}>{buttonName}</Button>
     </div>
 };
 

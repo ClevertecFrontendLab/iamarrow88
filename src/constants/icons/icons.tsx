@@ -80,7 +80,7 @@ export const AttentionIcon = () => (
 );
 
 export const ServerTroublesIcon = () => (
-    <svg width="255" height="294" viewBox="0 0 255 294" fill="none"
+    <svg width="255" height="294" viewBox="0 0 255 294" fill="none" className="serverTroubles"
          xmlns="http://www.w3.org/2000/svg">
         <path fillRule="evenodd" clipRule="evenodd"
               d="M0.755005 127.8V125.69C0.755005 56.274 57.028 0 126.445 0H128.555C197.971 0 254.245 56.274 254.245 125.69V127.8C254.245 197.217 197.971 253.49 128.555 253.49H126.445C57.028 253.49 0.755005 197.217 0.755005 127.8Z"
