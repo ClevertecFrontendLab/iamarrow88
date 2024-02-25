@@ -17,7 +17,7 @@ export const routes = (
             <Route path={Paths.Auth} element={<EntryPage/>}>
                 <Route index={true} element={<EntryWindow children={<Login />} /> } />
                 <Route path={Paths.Registration} element={<EntryWindow children={<Registration />} />} />
-                <Route path={Paths.ConfirmEmail} element={<EntryWindow children={<ConfirmEmail />} />} />
+                <Route path={Paths.ConfirmEmail} element={<ConfirmEmail />} />
                 <Route path={Paths.ChangePassword} element={<EntryWindow children={<Recovery />} />} />
             </Route>
 

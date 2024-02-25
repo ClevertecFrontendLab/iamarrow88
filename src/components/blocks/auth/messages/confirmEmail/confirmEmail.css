@@ -1,0 +1,62 @@
+@import "../../../../../styles/reset.css";
+
+.recovery-code {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 64px 85px 56px;
+
+    font-family: var(--font-family);
+
+}
+
+.recovery-code__title {
+    margin-top: 24px;
+    max-width: 370px;
+    font-weight: 500;
+    font-size: 24px;
+    text-align: center;
+    line-height: 130%;
+}
+
+.recovery-code__description {
+    margin-bottom: 24px;
+    max-width: 370px;
+    text-align: center;
+    color: var(--character-light-secondary-45);
+}
+
+.recovery-code__description > span {
+    font-weight: bold;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.character,
+.character--inactive {
+    border: 1px solid var(--character-light-border);
+    border-radius: 2px;
+    width: 40px;
+    height: 40px;
+    background: var(--character-light-primary-inverse);
+}
+
+.character--filled {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.recovery-code__info {
+    color: var(--character-light-secondary-45);
+}
+
