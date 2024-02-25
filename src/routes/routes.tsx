@@ -4,7 +4,7 @@ import {MainPage} from "@pages/main-page";
 import EntryPage from "@pages/entry-page/entry-page.tsx";
 import Registration from "@components/blocks/auth/registration/registration.tsx";
 import Login from "@components/blocks/auth/login/login.tsx";
-import Recovery from "@components/blocks/auth/recovery/recovery.tsx";
+import ChangePassword from "@components/blocks/auth/change-password/change-password.tsx";
 import ConfirmEmail from "@components/blocks/auth/messages/confirmEmail/confirmEmail.tsx";
 import EntryWindow from "@components/blocks/auth/entry-window/entry-window.tsx";
 import ErrorWindow from "@components/blocks/auth/messages/error-window/error-window.tsx";
@@ -15,10 +15,10 @@ export const routes = (
         <Route path={Paths.Root}>
             <Route path={Paths.MainPage} element={<MainPage/>} />
             <Route path={Paths.Auth} element={<EntryPage/>}>
-                <Route index={true} element={<EntryWindow children={<Login />} /> } />
-                <Route path={Paths.Registration} element={<EntryWindow children={<Registration />} />} />
+                <Route index={true} element={<EntryWindow children={<Login />} selectedTab={'/'} /> } />
+                <Route path={Paths.Registration} element={<EntryWindow children={<Registration />} selectedTab={'registration'}/>} />
                 <Route path={Paths.ConfirmEmail} element={<ConfirmEmail />} />
-                <Route path={Paths.ChangePassword} element={<EntryWindow children={<Recovery />} />} />
+                <Route path={Paths.ChangePassword} element={<ChangePassword />} />
             </Route>
 
             <Route path={Paths.Result} element={<EntryPage />}>

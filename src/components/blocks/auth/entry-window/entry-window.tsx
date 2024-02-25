@@ -5,7 +5,7 @@ import {ReactElement} from "react";
 import { useNavigate} from "react-router-dom";
 
 
-const EntryWindow = ({children}: {children: ReactElement}) => {
+const EntryWindow = ({children, selectedTab}: {children: ReactElement, selectedTab: string}) => {
     const navigate = useNavigate();
     const onChange = (key: string): void => {
         navigate(key, {replace: true})
@@ -27,7 +27,7 @@ const EntryWindow = ({children}: {children: ReactElement}) => {
 
             <div className="content-wrapper">
                 <Tabs
-                    defaultActiveKey={'/'}
+                    defaultActiveKey={selectedTab}
                     size="middle"
                     items={items}
                     onChange={onChange}
