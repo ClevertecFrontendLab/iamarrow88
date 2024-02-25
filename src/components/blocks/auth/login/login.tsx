@@ -1,11 +1,11 @@
 import {Button, Checkbox, Form, Input} from "antd";
 import './login.css';
 import { GooglePlusOutlined } from "@ant-design/icons";
-import { onFinishInterface } from '../../../../customTypes/content-types.ts'
+import { OnFinishDataAuth } from '../../../../customTypes/content-types.ts'
 
 const Login = () => {
 
-    const onFinish = (value: onFinishInterface) => {
+    const onFinish = (value: OnFinishDataAuth) => {
         console.log(value)
     }
 
@@ -34,7 +34,7 @@ const Login = () => {
             >
                 <Form.Item
                     label=""
-                    name="username"
+                    name="email"
                     rules={[{required: true}]}
                     className="email"
                 >

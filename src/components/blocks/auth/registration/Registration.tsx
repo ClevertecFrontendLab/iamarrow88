@@ -1,11 +1,11 @@
 import './registration.css';
 import {Button, Form, Input} from "antd";
 import {GooglePlusOutlined} from "@ant-design/icons";
-import { onFinishInterface } from '../../../../customTypes/content-types.ts'
+import {OnFinishDataAuth} from "../../../../customTypes/content-types.ts";
 
 const Registration = () => {
 
-    const onFinish = (value: onFinishInterface) => {
+    const onFinish = (value: OnFinishDataAuth) => {
         console.log(value)
     }
 
@@ -50,7 +50,7 @@ const Registration = () => {
                     />
                 </Form.Item>
                 <Form.Item className="password-repeat"
-                           name="password"
+                           name="passwordRepeat"
                            rules={[{required: true, message: "Пароль не менее 8 символов с заглавной буквой и цифрой"}]}>
 
                     <Input.Password

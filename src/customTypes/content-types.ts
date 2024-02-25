@@ -78,9 +78,12 @@ export interface LoginDataInterface {
     username: string
 }
 
-
-export interface onFinishInterface {
+export interface OnFinishDataAuth {
     password: string,
-    remember: boolean,
-    username: string
+    passwordRepeat?: string,
+    email?: string,
+    remember?: boolean,
+    google?: undefined,
+    submit?: undefined,
+
 }
