@@ -54,3 +54,33 @@ export interface ActionsInterface {
     type: isLogginInType,
     payload: string
 }
+
+export type MessageIconsTypes = 'error' | 'success' | 'serverTroubles' | 'warning' | 'attention';
+
+export interface ErrorMessagesInterface {
+    from: string,
+    icon: MessageIconsTypes,
+    title: string,
+    description: string,
+    buttonName: string,
+    url: string,
+    autoRequest: boolean,
+    redirect: string | string[]
+}
+
+
+export interface LoginDataInterface {
+    google: undefined,
+    password: string,
+    recovery: undefined,
+    remember: boolean,
+    submit: undefined,
+    username: string
+}
+
+
+export interface onFinishInterface {
+    password: string,
+    remember: boolean,
+    username: string
+}

@@ -1,0 +1,30 @@
+.buttons {
+    width: 100%;
+}
+
+.buttons .ant-btn.ant-btn-primary,
+.buttons .ant-btn.ant-btn-dashed {
+    padding: 10px 0;
+    height: auto;
+    width: 100%;
+}
+
+.buttons .ant-btn.ant-btn-primary {
+    border-radius: 2px;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
+    background-color: var(--primary-light-6);
+}
+
+.buttons .ant-btn.ant-btn-primary > span {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.buttons .ant-btn.ant-btn-dashed {
+    box-sizing: border-box;
+    border: 1px solid var(--neutral-gray-5);
+    border-radius: 2px;
+    box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.02);
+    background: var(--neutral-gray-1);
+    color: var(--character-light-title-85);
+}

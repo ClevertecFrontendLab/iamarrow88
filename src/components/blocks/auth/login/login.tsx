@@ -1,16 +1,23 @@
 import {Button, Checkbox, Form, Input} from "antd";
-
+import './login.css';
+import { GooglePlusOutlined } from "@ant-design/icons";
+import { onFinishInterface } from '../../../../customTypes/content-types.ts'
 
 const Login = () => {
 
-    interface onFinishInterface {
-        password: string,
-        remember: boolean,
-        username: string
-    }
     const onFinish = (value: onFinishInterface) => {
         console.log(value)
     }
+
+    const validateMessages = {
+        required: '',
+        types: {
+            email: '',
+        },
+    }
+
+    const form  = Form.useForm();
+    console.log(form);
     return (
             <Form
                 name="basic"
@@ -20,11 +27,16 @@ const Login = () => {
                 autoComplete="off"
                 className="login"
                 onFinish={onFinish}
+                style={{
+                    fontFamily: "inter, sans-serif"
+                }}
+                validateMessages={validateMessages}
             >
                 <Form.Item
                     label=""
                     name="username"
-                    rules={[{required: true, message: 'Please input your email!'}]}
+                    rules={[{required: true}]}
+                    className="email"
                 >
                     <Input
                         addonBefore="e-mail"
@@ -35,7 +47,8 @@ const Login = () => {
                 <Form.Item
                     label=""
                     name="password"
-                    rules={[{required: true, message: 'Please input your password!'}]}
+                    rules={[{required: true, message: "Пароль не менее 8 символов с заглавной буквой и цифрой"}]}
+                    className="password"
 
                 >
                     <Input.Password
@@ -43,19 +56,25 @@ const Login = () => {
                     />
                 </Form.Item>
 
-                <Form.Item name={["remember", "recovery"]} valuePropName="checked" className="login__actions">
-                    <Checkbox>Запомнить меня</Checkbox>
+                <div className="actions-wrapper">
+                    <Form.Item className="actions__remember" name="remember" valuePropName="checked">
+                        <Checkbox className="remember">Запомнить меня</Checkbox>
+                    </Form.Item>
+                    <Form.Item className="actions__recovery" name="recovery" valuePropName="checked">
+                        <Button type="link" disabled={true}>Забыли пароль?</Button>
+                    </Form.Item>
+                </div>
 
-                    <Button type="link" disabled={true}>Забыли пароль?</Button>
-                </Form.Item>
-
-
-
-                <Form.Item name="submit">
-                    <Button type="primary" htmlType="submit">
-                        Войти
-                    </Button>
-                </Form.Item>
+                <div className="buttons">
+                    <Form.Item name="submit">
+                        <Button type="primary" htmlType="submit">
+                            Войти
+                        </Button>
+                    </Form.Item>
+                    <Form.Item name="google">
+                        <Button type="dashed" icon={<GooglePlusOutlined />}>Войти через Google</Button>
+                    </Form.Item>
+                </div>
             </Form>
         );
 }

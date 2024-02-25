@@ -1,8 +1,5 @@
 html {
     width: 100%;
-    font-family: var(--font-family);
-    line-height: 150%;
-    font-weight: 400;
     background-color: #fff;
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -13,11 +10,18 @@ body {
     display: flex;
     place-items: center;
     width: 100%;
+    font-family: var(--font-family);
+    line-height: 150%;
+    font-weight: 400;
 }
 
 #root {
     height: 100%;
     width: 100%;
+}
+
+.ant-tabs-nav {
+    font-family: inherit;
 }
 
 @media (max-width: 540px) {
