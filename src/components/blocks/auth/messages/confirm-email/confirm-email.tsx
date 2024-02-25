@@ -1,10 +1,10 @@
-import './confirmEmail.css';
+import './confirm-email.css';
 import VerificationInput from "react-verification-input";
 import {AttentionIcon} from "@constants/icons/icons.tsx";
 
 
 const ConfirmEmail = () => {
-    const onComplete = (value) => {
+    const onComplete = (value: []) => {
         console.log(value);
     }
 
