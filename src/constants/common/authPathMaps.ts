@@ -5,3 +5,9 @@ export const registrationMap: RegistrationMapInterface = {
     409: '/result/error-user-exist',
     other: '/result/error'
 }
+
+export const loginMap: RegistrationMapInterface = {
+    201: '/result/success',
+    409: '/result/error-user-exist',
+    other: '/result/error'
+}

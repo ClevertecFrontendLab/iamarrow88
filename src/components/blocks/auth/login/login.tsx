@@ -1,12 +1,44 @@
 import {Button, Checkbox, Form, Input} from "antd";
 import './login.css';
 import { GooglePlusOutlined } from "@ant-design/icons";
-import { OnFinishDataAuth } from '../../../../customTypes/content-types.ts'
+import {OnFinishDataAuth} from '../../../../customTypes/content-types.ts'
+import {API_URLs} from "@constants/common/api-urls.ts";
+import postRequest from "../../../../servises/postRequest.ts";
+import {getPureMap, makeUrl} from "@utils/utils.ts";
+import {baseURL} from "@constants/common/common-constants.ts";
+import {useNavigate} from "react-router-dom";
+import {indexesForPureFunctions} from "@constants/common/enums.ts";
+import {AxiosResponse} from "axios";
 
 const Login = () => {
+    const navigate = useNavigate()
+
+    function navToNextPage(status: number, map: Record<number | string, string>, response: AxiosResponse ) {
+        if (response.data.accessToken) {
+            localStorage.setItem('accessToken', response.data.accessToken);
+        }
+        for (let i = 0; i < Object.keys(map).length; i += 1) {
+            const currentStatus = +Object.keys(map)[i];
+            console.log(map[currentStatus]);
+            if (status === currentStatus) {
+                navigate(map[currentStatus]);
+                break;
+            }
+        }
+    }
 
     const onFinish = (value: OnFinishDataAuth) => {
-        console.log(value)
+        if (value.email) {
+            const body = {
+                email: value.email,
+                password: value.password
+            }
+
+            postRequest(makeUrl(baseURL, API_URLs.login.url), body, (response: AxiosResponse) => navToNextPage(response.status, getPureMap(API_URLs.login, indexesForPureFunctions.urls), response))
+        } else {
+            console.log('no email');
+        }
+
     }
 
     const validateMessages = {
@@ -16,8 +48,6 @@ const Login = () => {
         },
     }
 
-    const form  = Form.useForm();
-    console.log(form);
     return (
             <Form
                 name="basic"
