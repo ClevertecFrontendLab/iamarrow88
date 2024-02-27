@@ -1,19 +1,19 @@
 import './registration.css';
 import {Button, Form, Input} from "antd";
 import {GooglePlusOutlined} from "@ant-design/icons";
-import {
-    OnFinishRegistration,
-    RegistrationMapInterface
-} from "../../../../customTypes/content-types.ts";
+import { OnFinishRegistration } from "../../../../customTypes/content-types.ts";
 import postRequest from "../../../../servises/postRequest.ts";
-import {emailCheckRegex, passwordCheckRegex} from "@constants/common/common-constants.ts";
-import {registrationMap} from "@constants/common/authPathMaps.ts";
+import {baseURL, emailCheckRegex, passwordCheckRegex} from "@constants/common/common-constants.ts";
 import {useNavigate} from "react-router-dom";
+import {getPureMap, makeUrl} from "@utils/utils.ts";
+import {API_URLs} from "@constants/common/api-urls.ts";
+import {AxiosResponse} from "axios";
+import {indexesForPureFunctions} from "@constants/common/enums.ts";
 const Registration = () => {
 
     const navigate = useNavigate()
 
-    function navToNextPage(status: number, registrationMap: RegistrationMapInterface ) {
+    function navToNextPage(status: number, registrationMap: Record<string, string>) {
         for (let i = 0; i < Object.keys(registrationMap).length; i += 1) {
             if (status === +Object.keys(registrationMap)[i]) {
                 navigate(registrationMap[Object.keys(registrationMap)[i]]);
@@ -23,12 +23,19 @@ const Registration = () => {
     }
     const onFinish = (value: OnFinishRegistration) => {
         const {email, password} = value;
-        const options = {
-            email: email,
-            password: password
+        if (email) {
+            const options = {
+                email: email,
+                password: password
+            }
+            //'https://marathon-api.clevertec.ru/auth/registration'
+            postRequest(makeUrl(baseURL, API_URLs.registration.url),
+                options,
+                (response: AxiosResponse) => navToNextPage(response.status, getPureMap(API_URLs.registration, indexesForPureFunctions.urls)))
+        } else {
+            console.log('registration error: no email');
         }
-       postRequest('https://marathon-api.clevertec.ru/auth/registration', options, (status: number) => navToNextPage(status, registrationMap))
-        console.log(value)
+
     }
 
     const validateMessages = {

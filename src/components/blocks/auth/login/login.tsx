@@ -13,13 +13,14 @@ import {AxiosResponse} from "axios";
 const Login = () => {
     const navigate = useNavigate()
 
-    function navToNextPage(status: number, map: Record<number | string, string>, response: AxiosResponse ) {
+    function navToNextPage(status: number,
+                           map: Record<number | string, string>,
+                           response: AxiosResponse ) {
         if (response.data.accessToken) {
             localStorage.setItem('accessToken', response.data.accessToken);
         }
         for (let i = 0; i < Object.keys(map).length; i += 1) {
             const currentStatus = +Object.keys(map)[i];
-            console.log(map[currentStatus]);
             if (status === currentStatus) {
                 navigate(map[currentStatus]);
                 break;
@@ -34,7 +35,9 @@ const Login = () => {
                 password: value.password
             }
 
-            postRequest(makeUrl(baseURL, API_URLs.login.url), body, (response: AxiosResponse) => navToNextPage(response.status, getPureMap(API_URLs.login, indexesForPureFunctions.urls), response))
+            postRequest(makeUrl(baseURL, API_URLs.login.url),
+                body,
+                (response: AxiosResponse) => navToNextPage(response.status, getPureMap(API_URLs.login, indexesForPureFunctions.urls), response))
         } else {
             console.log('no email');
         }
