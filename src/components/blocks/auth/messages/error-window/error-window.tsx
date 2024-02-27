@@ -8,15 +8,15 @@ import {
 } from "@constants/icons/icons.tsx";
 import {ReactElement} from "react";
 import {Button} from "antd";
-import {MessageIconsTypes} from "../../../../../customTypes/content-types.ts";
+import { ErrorMessagesInterface } from "../../../../../customTypes/content-types.ts";
+import {useNavigate} from "react-router-dom";
 
-const ErrorWindow = ({icon,
-                         title,
-                         description,
-                         buttonName}: {icon: MessageIconsTypes, title: string, description: string, buttonName: string}) => {
+const ErrorWindow = ({resultData}: {resultData: ErrorMessagesInterface}) => {
+    const navigate = useNavigate();
+
     let iconElement: ReactElement;
 
-    switch (icon) {
+    switch (resultData.icon) {
         case 'error': {
             iconElement = <ErrorIcon />;
             break;
@@ -40,13 +40,20 @@ const ErrorWindow = ({icon,
 
     }
 
-    const buttonClassNames = icon === 'serverTroubles' ? 'error-window__btn serverTroubles' : 'error-window__btn';
+    const buttonClassNames = resultData.icon === 'serverTroubles' ? 'error-window__btn serverTroubles' : 'error-window__btn';
+
+    function nextPage() {
+        if(resultData.autoRequest) {
+            console.log('post request again');
+        }
+        navigate(resultData.redirect);
+    }
 
     return <div className="error-window">
         {iconElement}
-        <h2 className="error-window__title">{title}</h2>
-        <p className="error-window__description">{description}</p>
-        <Button type="primary" className={buttonClassNames}>{buttonName}</Button>
+        <h2 className="error-window__title">{resultData.title}</h2>
+        <p className="error-window__description">{resultData.description}</p>
+        <Button type="primary" className={buttonClassNames} onClick={nextPage}>{resultData.buttonName}</Button>
     </div>
 };
 

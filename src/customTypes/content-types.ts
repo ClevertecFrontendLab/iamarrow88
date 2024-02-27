@@ -13,7 +13,7 @@ export interface MenuItemInterface {
     label: string;
 }
 
-export interface itemInstanseInterface {
+export interface itemInstanceInterface {
     key: number;
     label: string;
     title: string;
@@ -65,7 +65,8 @@ export interface ErrorMessagesInterface {
     buttonName: string,
     url: string,
     autoRequest: boolean,
-    redirect: string | string[]
+    requestTo?: string,
+    redirect: string
 }
 
 
@@ -78,6 +79,13 @@ export interface LoginDataInterface {
     username: string
 }
 
+export interface OnFinishRegistration {
+    password: string,
+    passwordRepeat: string,
+    email: string,
+    submit: undefined,
+}
+
 export interface OnFinishDataAuth {
     password: string,
     passwordRepeat?: string,
@@ -85,5 +93,23 @@ export interface OnFinishDataAuth {
     remember?: boolean,
     google?: undefined,
     submit?: undefined,
+}
 
+interface Map {
+    [key: string]: string;
+}
+
+export interface RegistrationMapInterface extends Map {
+    201: string,
+    409: string,
+    other: string
+}
+
+
+export type FunctionNavigate = (mapPages: RegistrationMapInterface) => void;
+
+export interface StoreInterface {
+    isLoggedIn: boolean;
+    email: string;
+    password: string;
 }

@@ -2,7 +2,7 @@ const recoveryMessages = {
     recoveryPin: {
         from: '/auth/registration',
         icon: 'attention',
-        title: 'Введите код  для восстановления аккауанта',
+        title: 'Введите код для восстановления аккаунта',
         description: `Мы отправили вам на e-mail {template} шестизначный код. Введите его в поле ниже.`,
         additionalMessage: 'Не пришло письмо? Проверьте папку Спам.',
         url: '/auth/confirm-email',
@@ -13,7 +13,7 @@ const recoveryMessages = {
     recoveryIncorrectPin: {
         from: '/auth/confirm-email',
         icon: 'error',
-        title: 'Неверный код. Введите код  для восстановления аккауанта',
+        title: 'Неверный код. Введите код для восстановления аккаунта',
         description: `Мы отправили вам на e-mail {template} шестизначный код. Введите его в поле ниже.`,
         additionalMessage: 'Не пришло письмо? Проверьте папку Спам.',
         url: '/auth/confirm-email',
@@ -23,7 +23,7 @@ const recoveryMessages = {
     },
     recoveryConfirm: {
         from: '/auth/confirm-email',
-        title: 'Восстановление аккауанта',
+        title: 'Восстановление аккаунта',
         additionalMessage: 'Пароль не менее 8 символов, с заглавной буквой и цифрой',
         url: '/auth/confirm-email',
         autoRequest: false,
@@ -32,4 +32,4 @@ const recoveryMessages = {
     },
 }
 
-export default recoveryMessages
+export default recoveryMessages;

@@ -22,41 +22,16 @@ export const routes = (
             </Route>
 
             <Route path={Paths.Result} element={<AuthPage />}>
-                <Route path={Paths.LoginError} element={<ErrorWindow icon={resultMessages.entryAnyError.icon}
-                                                                     title={resultMessages.entryAnyError.title}
-                                                                     buttonName={resultMessages.entryAnyError.buttonName}
-                                                                     description={resultMessages.entryAnyError.description} />} />
+                <Route path={Paths.LoginError} element={<ErrorWindow resultData={resultMessages.entryAnyError} />} />
 
 
-                <Route path={Paths.RegistrationSuccess} element={<ErrorWindow icon={resultMessages.RegistrationSuccess.icon}
-                                                                              title={resultMessages.RegistrationSuccess.title}
-                                                                              buttonName={resultMessages.RegistrationSuccess.buttonName}
-                                                                              description={resultMessages.RegistrationSuccess.description} />} />
-                <Route path={Paths.RegistrationErrorUserExist} element={<ErrorWindow icon={resultMessages.registrationError409.icon}
-                                                                                     title={resultMessages.registrationError409.title}
-                                                                                     buttonName={resultMessages.registrationError409.buttonName}
-                                                                                     description={resultMessages.registrationError409.description} />} />
-                <Route path={Paths.RegistrationOtherErrors} element={<ErrorWindow icon={resultMessages.registrationOtherErrors.icon}
-                                                                                  title={resultMessages.registrationOtherErrors.title}
-                                                                                  buttonName={resultMessages.registrationOtherErrors.buttonName}
-                                                                                  description={resultMessages.registrationOtherErrors.description} />} />
-                <Route path={Paths.RecoveryNoExist} element={<ErrorWindow icon={resultMessages.recoveryError404Message.icon}
-                                                                          title={resultMessages.recoveryError404Message.title}
-                                                                          buttonName={resultMessages.recoveryError404Message.buttonName}
-                                                                          description={resultMessages.recoveryError404Message.description} />} />
-                <Route path={Paths.ErrorLogin} element={<ErrorWindow icon={resultMessages.recoveryOtherErrorsOrMessages.icon}
-                                                                     title={resultMessages.recoveryOtherErrorsOrMessages.title}
-                                                                     buttonName={resultMessages.recoveryOtherErrorsOrMessages.buttonName}
-                                                                     description={resultMessages.recoveryOtherErrorsOrMessages.description} />} />
-                <Route path={Paths.ChangePasswordError} element={<ErrorWindow icon={resultMessages.recoveryServerError.icon}
-                                                                              title={resultMessages.recoveryServerError.title}
-                                                                              buttonName={resultMessages.recoveryServerError.buttonName}
-                                                                              description={resultMessages.recoveryServerError.description} />} />
-                <Route path={Paths.ChangePasswordSuccess} element={<ErrorWindow icon={resultMessages.recoverySuccess.icon}
-                                                                                title={resultMessages.recoverySuccess.title}
-                                                                                buttonName={resultMessages.recoverySuccess.buttonName}
-                                                                                description={resultMessages.recoverySuccess.description} />} />
-
+                <Route path={Paths.RegistrationSuccess} element={<ErrorWindow resultData={resultMessages.RegistrationSuccess} />} />
+                <Route path={Paths.RegistrationErrorUserExist} element={<ErrorWindow resultData={resultMessages.registrationError409} />} />
+                <Route path={Paths.RegistrationOtherErrors} element={<ErrorWindow resultData={resultMessages.registrationOtherErrors} />} />
+                <Route path={Paths.RecoveryNoExist} element={<ErrorWindow resultData={resultMessages.recoveryError404Message} />} />
+                <Route path={Paths.ErrorLogin} element={<ErrorWindow resultData={resultMessages.recoveryOtherErrorsOrMessages} />} />
+                <Route path={Paths.ChangePasswordError} element={<ErrorWindow resultData={resultMessages.recoveryServerError} />} />
+                <Route path={Paths.ChangePasswordSuccess} element={<ErrorWindow resultData={resultMessages.recoverySuccess} />} />
             </Route>
         </Route>
 

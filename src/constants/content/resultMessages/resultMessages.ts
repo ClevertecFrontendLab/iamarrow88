@@ -39,6 +39,7 @@ const errorMessages: Record<string, ErrorMessagesInterface> = {
         buttonName: 'Повторить',
         url: '/result/error',
         autoRequest: true,
+        requestTo: 'https://marathon-api.clevertec.ru/auth/registration',
         redirect: '/auth/registration' // if autoRequest: true
     },
     recoveryError404Message: {
@@ -59,6 +60,7 @@ const errorMessages: Record<string, ErrorMessagesInterface> = {
         buttonName: 'Назад',
         url: '/result/error-check-email',
         autoRequest: true,
+        requestTo: 'https://marathon-api.clevertec.ru/auth/check-email',
         redirect: '/auth/registration',
     },
     recoveryServerError: {
@@ -69,6 +71,7 @@ const errorMessages: Record<string, ErrorMessagesInterface> = {
         buttonName: 'Повторить',
         url: '/result/error-change-password',
         autoRequest: true,
+        requestTo: 'https://marathon-api.clevertec.ru/auth/change-password',
         redirect: '/auth/change-password'
     },
     recoverySuccess: {

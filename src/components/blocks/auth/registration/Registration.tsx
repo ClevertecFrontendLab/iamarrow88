@@ -1,11 +1,33 @@
 import './registration.css';
 import {Button, Form, Input} from "antd";
 import {GooglePlusOutlined} from "@ant-design/icons";
-import {OnFinishDataAuth} from "../../../../customTypes/content-types.ts";
-
+import {
+    OnFinishRegistration,
+    RegistrationMapInterface
+} from "../../../../customTypes/content-types.ts";
+import postRequest from "../../../../servises/postRequest.ts";
+import {emailCheckRegex, passwordCheckRegex} from "@constants/common/common-constants.ts";
+import {registrationMap} from "@constants/common/authPathMaps.ts";
+import {useNavigate} from "react-router-dom";
 const Registration = () => {
 
-    const onFinish = (value: OnFinishDataAuth) => {
+    const navigate = useNavigate()
+
+    function navToNextPage(status: number, registrationMap: RegistrationMapInterface ) {
+        for (let i = 0; i < Object.keys(registrationMap).length; i += 1) {
+            if (status === +Object.keys(registrationMap)[i]) {
+                navigate(registrationMap[Object.keys(registrationMap)[i]]);
+                break;
+            }
+        }
+    }
+    const onFinish = (value: OnFinishRegistration) => {
+        const {email, password} = value;
+        const options = {
+            email: email,
+            password: password
+        }
+       postRequest('https://marathon-api.clevertec.ru/auth/registration', options, (status: number) => navToNextPage(status, registrationMap))
         console.log(value)
     }
 
@@ -27,7 +49,15 @@ const Registration = () => {
             >
                 <Form.Item
                     name="email"
-                    rules={[{required: true}]}
+                    rules={[
+                        {
+                            required: true,
+                            message: '',
+                        },{
+                            pattern: emailCheckRegex,
+                            message: 'Please enter a valid e-mail',
+                        }
+                    ]}
                     className="email"
                 >
                     <Input
@@ -37,7 +67,15 @@ const Registration = () => {
 
                 <Form.Item
                     name="password"
-                    rules={[{required: true, message: "Пароль не менее 8 символов с заглавной буквой и цифрой"}]}
+                    rules={[
+                        {
+                            required: true,
+                            message: '',
+                        },{
+                            pattern: passwordCheckRegex,
+                            message: 'Пароль не менее 8 символов с заглавной буквой и цифрой',
+                        }
+                    ]}
                     className="password"
                     extra="Пароль не менее 8 символов с заглавной буквой и цифрой"
 
@@ -48,7 +86,20 @@ const Registration = () => {
                 </Form.Item>
                 <Form.Item className="password-repeat"
                            name="passwordRepeat"
-                           rules={[{required: true, message: "Пароль не менее 8 символов с заглавной буквой и цифрой"}]}>
+                           dependencies={['password']}
+                           rules={[
+                               {
+                                   required: true, message: "Пароль не менее 8 символов с заглавной буквой и цифрой"
+                               },
+                               ({ getFieldValue }) => ({
+                                   validator(_, value) {
+                                   if (!value || getFieldValue('password') === value) {
+                                   return Promise.resolve();
+                               }
+                                   return Promise.reject(new Error('Пароли не совпадают'));
+                               },
+                               })
+                           ]}>
 
                     <Input.Password
                         placeholder="Повторите пароль"

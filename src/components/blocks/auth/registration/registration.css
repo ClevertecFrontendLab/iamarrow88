@@ -30,3 +30,8 @@
     background: var(--neutral-gray-1);
     color: var(--character-light-title-85);
 }
+
+
+@media (max-width: 835px) {
+
+}
