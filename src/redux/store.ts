@@ -1,11 +1,10 @@
-import {initialTypesInterface} from "../customTypes/content-types.ts";
 
-const initialState: initialTypesInterface = {
+export const initialLoginState = {
     isLoggedIn: false,
-    authData: {
-        email: '',
-        password: ''
-    }
 }
 
-export default initialState;
+export const initialAuthDataState = {
+    email: '',
+    password: ''
+}
+

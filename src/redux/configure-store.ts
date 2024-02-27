@@ -2,10 +2,9 @@ import {combineReducers, configureStore, EnhancedStore} from '@reduxjs/toolkit';
 import { createReduxHistoryContext} from "redux-first-history";
 import {createBrowserHistory} from "history";
 import {
-    initialTypesInterface,
     ActionsInterface, storeActionTypes
 } from "../customTypes/content-types.ts";
-import initialState from './store.ts';
+import {initialLoginState, initialAuthDataState} from './store.ts';
 
 // let preloadedState: StoreInterface = {
 //     isLoggedIn: false,
@@ -32,32 +31,28 @@ const rootReducer = combineReducers({
 
 
 
-function changeLogReducer(state = initialState, action: ActionsInterface): initialTypesInterface {
+function changeLogReducer(state = initialLoginState, action: ActionsInterface): boolean {
 
     switch (action.type) {
         case storeActionTypes.loginFalse: {
-            return {...state, isLoggedIn: false};
+            return false;
         }
         case storeActionTypes.loginTrue: {
-            return { ...state, isLoggedIn: true };
+            return true;
         }
         default: {
-            return state;
+            return state.isLoggedIn || false;
         }
     }
 }
 
-function changeAuthData(state = initialState, action: ActionsInterface): initialTypesInterface {
+function changeAuthData(state = initialAuthDataState, action: ActionsInterface): { email: string, password: string } {
     switch (action.type) {
         case storeActionTypes.emailWrite: {
-            return {...state, authData: {
-                    ...state.authData, email: action.payload
-                }};
+            return {...state, email: action.payload};
         }
         case storeActionTypes.passwordWrite: {
-            return {...state, authData: {
-                    ...state.authData, password: action.payload
-                }};
+            return {...state, password: action.payload };
         }
         default: {
             return state;

@@ -18,7 +18,9 @@ import MenuBlock from '@components/blocks/main/menu/menu-block.tsx';
 import ExitIcon from '@components/icons/exit-icon/exit-icon.tsx';
 import DynamicIcon from '@components/icons/dynamic-icon/dynamic-icon.tsx';
 import './main-page.css';
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import {useSelector, useDispatch } from "react-redux";
+import {storeActionTypes, StoreInterface} from "../../customTypes/content-types.ts";
 import {Paths} from "../../routes/paths.ts";
 
 export const MainPage: React.FC = () => {
@@ -26,20 +28,32 @@ export const MainPage: React.FC = () => {
     const [collapsed, setCollapsed] = useState(false);
     const isBigTablet = useMediaQuery({ query: '(min-width: 1020px)' });
     const isTablet = useMediaQuery({ query: '(min-width: 834px)' });
+    const navigate = useNavigate();
 
+    const isLoggedIn = useSelector((state: StoreInterface) => state.isLoggedIn );
+    console.log(isLoggedIn);
     const menuAction = (value: boolean ): void => {
         setCollapsed(value);
     };
+
+    const exitButtonName = collapsed ? '' : isLoggedIn ? 'Выйти' : 'Войти';
+    const dispatch = useDispatch();
+    function logOut() {
+        dispatch({ type: storeActionTypes.loginFalse});
+        localStorage.removeItem('accessToken');
+        navigate(Paths.Auth);
+    }
 
     const exitButton = isBigMobile ? (
         <Button
             icon={<ExitIcon className='exit__icon' style={{ fontSize: '14px' }} />}
             className='button-icon-text exit__button'
+            onClick={logOut}
         >
-            {collapsed ? '' : 'Выход'}
+            {exitButtonName}
         </Button>
     ) : (
-        <Button className='button-icon-text exit__button'>{collapsed ? '' : 'Выход'}</Button>
+        <Button className='button-icon-text exit__button' onClick={logOut}>{exitButtonName}</Button>
     );
 
     return (
@@ -61,47 +75,41 @@ export const MainPage: React.FC = () => {
                     <Logo isCollapsed={collapsed} className={'logo'}/>
                     <div className="buttons-nav">
                         <Button type="primary">
-                            <Link to={Paths.Auth}>Авторизация</Link>
+                            <Link to='/auth'>Авторизация</Link>
                         </Button>
                         <Button type="primary">
-                            <Link to={Paths.Registration}>Registration</Link>
+                            <Link to='/auth/registration'>Registration</Link>
                         </Button>
                         <Button type="primary">
-                            <Link to={Paths.ConfirmEmail}>ConfirmEmail</Link>
+                            <Link to='/auth/confirm-email'>ConfirmEmail</Link>
                         </Button>
 
                         <Button type="primary">
-                            <Link to={Paths.ChangePassword}>ChangePassword</Link>
+                            <Link to='/auth/change-password'>ChangePassword</Link>
                         </Button>
                         <Button type="primary">
-                            <Link to={Paths.CheckEmail}>CheckEmail</Link>
+                            <Link to='/result/error-login'>LoginError</Link>
                         </Button>
                         <Button type="primary">
-                            <Link to={Paths.Result}>Result</Link>
+                            <Link to='/result/success'>RegistrationSuccess</Link>
                         </Button>
                         <Button type="primary">
-                            <Link to={Paths.LoginError}>LoginError</Link>
+                            <Link to='/result/error-user-exist'>RegistrationErrorUserExist</Link>
                         </Button>
                         <Button type="primary">
-                            <Link to={Paths.RegistrationSuccess}>RegistrationSuccess</Link>
+                            <Link to='/result/error'>RegistrationError</Link>
                         </Button>
                         <Button type="primary">
-                            <Link to={Paths.RegistrationErrorUserExist}>RegistrationErrorUserExist</Link>
+                            <Link to='/result/error-check-email-no-exist'>RecoveryNoExist</Link>
                         </Button>
                         <Button type="primary">
-                            <Link to={Paths.RegistrationError}>RegistrationError</Link>
+                            <Link to='/result/error-check-email'>ErrorLogin</Link>
                         </Button>
                         <Button type="primary">
-                            <Link to={Paths.RecoveryNoExist}>RecoveryNoExist</Link>
+                            <Link to='/result/error-change-password'>ChangePasswordError</Link>
                         </Button>
                         <Button type="primary">
-                            <Link to={Paths.ErrorLogin}>ErrorLogin</Link>
-                        </Button>
-                        <Button type="primary">
-                            <Link to={Paths.ChangePasswordError}>ChangePasswordError</Link>
-                        </Button>
-                        <Button type="primary">
-                            <Link to={Paths.ChangePasswordSuccess}>ChangePasswordSuccess</Link>
+                            <Link to='/result/success-change-password'>ChangePasswordSuccess</Link>
                         </Button>
                     </div>
                     <MenuBlock
