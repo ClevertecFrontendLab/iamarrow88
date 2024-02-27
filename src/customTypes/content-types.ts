@@ -1,4 +1,6 @@
 import { CSSProperties, ReactNode } from 'react';
+import type {Reducer} from "redux";
+import {RouterState} from "redux-first-history/src/reducer.ts";
 
 export interface iconStylesInterface {
     color?: string;
@@ -45,13 +47,22 @@ export interface propsInterface {
 }
 
 export interface initialTypesInterface {
-    isLoggedIn: boolean
+    isLoggedIn: boolean,
+    authData: {
+      email: string,
+      password: string,
+    }
 }
 
-export type isLogginInType = ('loggin/true' | 'loggin/false');
+export enum storeActionTypes {
+    loginTrue = "login/true",
+    loginFalse = "login/false",
+    emailWrite = "authData/email/write",
+    passwordWrite = 'authData/password/write'
+}
 
 export interface ActionsInterface {
-    type: isLogginInType,
+    type: storeActionTypes,
     payload: string
 }
 
@@ -110,6 +121,9 @@ export type FunctionNavigate = (mapPages: RegistrationMapInterface) => void;
 
 export interface StoreInterface {
     isLoggedIn: boolean;
-    email: string;
-    password: string;
+    authData: {
+        email: string;
+        password: string;
+    },
+    router: Reducer<RouterState> | null;
 }
