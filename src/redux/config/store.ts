@@ -1,4 +1,4 @@
-import {statusPageInterface} from "@redux/config/redux-types.ts";
+import {PageStateInterface} from "@redux/config/redux-types.ts";
 
 export const initialLoginState = {
     isLogin: false,
@@ -12,7 +12,7 @@ export const initialAuthDataState = {
 }
 
 
-export const initialStatusPage: statusPageInterface = {
+export const initialStatusPage: PageStateInterface = {
     isLoading: false,
 }
 

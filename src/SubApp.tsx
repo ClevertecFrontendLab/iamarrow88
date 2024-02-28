@@ -1,6 +1,6 @@
 import {useDispatch} from "react-redux";
-import {storeActionTypes} from "./customTypes/content-types.ts";
 import {ReactElement} from "react";
+import {storeActionTypes} from "@redux/config/redux-constants.ts";
 
 const SubApp = ({children}: {children: ReactElement}) => {
     function checkIsLogginIn() {

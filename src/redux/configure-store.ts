@@ -6,9 +6,9 @@ import {changeAuthData, changeLogReducer, setStatusPage} from "@redux/config/red
 const { createReduxHistory, routerMiddleware, routerReducer } = createReduxHistoryContext({ history: createBrowserHistory(), savePreviousLocations: 1 })
 
 const rootReducer = combineReducers({
-    isLogin: changeLogReducer,
-    authData: changeAuthData,
-    isLoading: setStatusPage,
+    auth: changeLogReducer,
+    userData: changeAuthData,
+    page: setStatusPage,
     router: routerReducer,
 });
 

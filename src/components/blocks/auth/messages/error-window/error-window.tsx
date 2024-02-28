@@ -21,13 +21,13 @@ import {StoreInterface} from "@redux/config/redux-types.ts";
 import {storeActionTypes} from "@redux/config/redux-constants.ts";
 
 const ErrorWindow = ({resultData}: {resultData: ErrorMessagesInterface}) => {
-    const userMail = useSelector((state: StoreInterface) => state.authData.email);
-    const isRemembered =  useSelector((state: StoreInterface) => state.authData.isRemembered);
+    const userMail = useSelector((state: StoreInterface) => state.userData.email);
+    const isRemembered =  useSelector((state: StoreInterface) => state.userData.isRemembered);
     console.log(userMail);
     console.log(isRemembered);
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    console.log(useSelector((state: StoreInterface) => state.isLogin));
+    console.log(useSelector((state: StoreInterface) => state.auth.isLogin));
 
     let iconElement: ReactElement;
 
@@ -127,7 +127,7 @@ const ErrorWindow = ({resultData}: {resultData: ErrorMessagesInterface}) => {
         }
     }
 
-    console.log(useSelector((state: StoreInterface) => state.authData));
+    console.log(useSelector((state: StoreInterface) => state.userData));
     function nextPage() {
         if(resultData.autoRequest) {
             const body = {

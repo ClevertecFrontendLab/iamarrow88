@@ -2,24 +2,24 @@ import {storeActionTypes} from "./redux-constants.ts";
 import type {Reducer} from "redux";
 import {RouterState} from "redux-first-history/src/reducer.ts";
 
-export interface LoginStateInterface {
+export interface AuthStateInterface {
     isLogin: boolean,
 }
-export interface AuthDataInterface {
+export interface UserDataStateInterface {
     password: string;
     code: string;
     email: string;
     isRemembered: boolean
 }
 
-export interface statusPageInterface {
+export interface PageStateInterface {
     isLoading: boolean,
 }
 
 export interface StoreInterface {
-    isLogin: boolean;
-    authData: AuthDataInterface;
-    isLoading: boolean;
+    auth: AuthStateInterface;
+    userData: UserDataStateInterface;
+    page: PageStateInterface;
     router: Reducer<RouterState> | null;
 }
 

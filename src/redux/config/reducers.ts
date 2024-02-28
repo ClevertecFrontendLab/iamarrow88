@@ -1,15 +1,15 @@
 import {initialAuthDataState, initialLoginState, initialStatusPage} from "@redux/config/store.ts";
 import {
     ActionsInterface,
-    AuthDataInterface, LoginStateInterface,
-    statusPageInterface
+    UserDataStateInterface, AuthStateInterface,
+    PageStateInterface
 } from "@redux/config/redux-types.ts";
 import {storeActionTypes} from "@redux/config/redux-constants.ts";
 
 export function changeLogReducer(
     state = initialLoginState,
     action: ActionsInterface
-): LoginStateInterface {
+): AuthStateInterface {
 
     switch (action.type) {
         case storeActionTypes.loginFalse: {
@@ -31,7 +31,7 @@ export function changeLogReducer(
 export function changeAuthData(
     state = initialAuthDataState,
     action: ActionsInterface
-): AuthDataInterface {
+): UserDataStateInterface {
     switch (action.type) {
         case storeActionTypes.emailWrite: {
             return {...state, email: action.payload};
@@ -55,7 +55,7 @@ export function changeAuthData(
 export function setStatusPage (
     state = initialStatusPage,
     action: ActionsInterface
-): statusPageInterface {
+): PageStateInterface {
     switch (action.type) {
         case storeActionTypes.isLoadingTrue: {
             return {

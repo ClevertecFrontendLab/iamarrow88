@@ -14,7 +14,7 @@ const ConfirmEmail = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [isCorrect, setIsCorrect] = useState(true);
-    const email = useSelector((state: StoreInterface) => state.authData.email);
+    const email = useSelector((state: StoreInterface) => state.userData.email);
     const title = isCorrect ? 'Введите код для восстановления аккаунта' : 'Неверный код. Введите код для восстановления аккаунта';
     const additionalInfo = 'Не пришло письмо? Проверьте папку Спам.';
     const onComplete = (value: string) => {
