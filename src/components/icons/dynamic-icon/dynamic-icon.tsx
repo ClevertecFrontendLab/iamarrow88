@@ -34,7 +34,10 @@ const DynamicIcon = ({
     const [collapsed, setCollapsed] = useState(isCollapsed);
     filteredProps.className = props?.props?.className;
     filteredProps.style = props?.props?.style;
-    filteredProps.twoToneColor = props?.props?.twoToneColor;
+
+    if (props?.props?.twoToneColor) {
+        filteredProps.twoToneColor = props?.props?.twoToneColor;
+    }
     if (style) {
         filteredProps.style = style;
     }
