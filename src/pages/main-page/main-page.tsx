@@ -90,7 +90,7 @@ export const MainPage: React.FC = () => {
                     </div>
 
                 </Sider>
-                <Layout style={{position: 'relative'}} className='body-layout'>
+                <Layout className='body-layout'>
                     <div
                         className={
                             collapsed
@@ -107,36 +107,38 @@ export const MainPage: React.FC = () => {
                         />
                     </div>
 
-                    <HeaderBlock
-                        isCollapsed={collapsed}
-                        isBigTablet={isBigTablet}
-                        isBigMobile={isBigMobile}
-                    />
+                    <div className="page-content">
+                        <HeaderBlock
+                            isCollapsed={collapsed}
+                            isBigTablet={isBigTablet}
+                            isBigMobile={isBigMobile}
+                        />
 
-                    <Content className='main'>
-                        <TextBlock className='pros' list={list} />
+                        <Content className='main'>
+                            <TextBlock className='pros' list={list} />
 
-                        <TextBlock className='about' text={about} />
+                            <TextBlock className='about' text={about} />
 
-                        <Space className='actions' size={isBigMobile ? 'middle' : 'small'}>
-                            {actionsCard.map((cardData) => {
-                                return (
-                                    <CardLink
-                                        key={cardData.id}
-                                        title={cardData.title}
-                                        iconName={cardData.iconName}
-                                        iconTitle={cardData.iconTitle}
-                                        className='actions__card'
-                                        color='#2F54EB'
-                                        size='14px'
-                                        isCollapsed={collapsed}
-                                    />
-                                );
-                            })}
-                        </Space>
-                    </Content>
+                            <Space className='actions' size={isBigMobile ? 'middle' : 'small'}>
+                                {actionsCard.map((cardData) => {
+                                    return (
+                                        <CardLink
+                                            key={cardData.id}
+                                            title={cardData.title}
+                                            iconName={cardData.iconName}
+                                            iconTitle={cardData.iconTitle}
+                                            className='actions__card'
+                                            color='#2F54EB'
+                                            size='14px'
+                                            isCollapsed={collapsed}
+                                        />
+                                    );
+                                })}
+                            </Space>
+                        </Content>
 
-                    <FooterBlock />
+                        <FooterBlock />
+                    </div>
                 </Layout>
             </Layout>
         </>

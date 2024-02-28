@@ -1,12 +1,12 @@
 @import '../../styles/reset.css';
 
 .main-page {
-    position: relative;
     display: flex;
     margin: 0 auto;
     min-height: 1024px;
     max-width: 1440px;
     height: 100%;
+    background-image: url("../../assets/img/main/main_bg_light.jpg");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -14,21 +14,57 @@
        object-fit: contain;
 }
 
+.main-page > .ant-layout,
+.main-page > .ant-layout >.ant-layout-footer {
+    background: transparent;
+}
+
 .main-page.main-page--collapsed .body-layout {
     width: calc(100% - 64px);
-
 }
 
 .main-page.main-page--uncollapsed .body-layout {
     width: calc(100% - 208px);
-
 }
 
+.body-layout {
+    height: 100%;
+}
+
+.trigger__wrapper {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    -webkit-filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.15));
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.15));
+    /*position: absolute;*/
+    /*top: 24px;*/
+    /*transform: none;*/
+}
+
+/*.trigger__wrapper--uncollapsed {*/
+/*    left: 208px;*/
+/*}*/
+
+/*.trigger__wrapper--collapsed {*/
+/*    left: 64px;*/
+/*}*/
+
+.trigger {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 66px;
+    width: 20px;
+    background-color: #fff;
+    -webkit-clip-path: polygon(0 0, 100% 15%, 100% 85%, 0 100%);
+    clip-path: polygon(0 0, 100% 15%, 100% 85%, 0 100%);
+    cursor: pointer;
+}
+
+
 .sider {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
+    position: relative;
     z-index: 6;
     box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
 }
@@ -45,37 +81,18 @@
     gap: 24px;
 }
 
-.trigger__wrapper {
-    position: fixed;
-    top: 50%;
-    transform: translateY(-50%);
-    left: -1px;
-    z-index: 5;
-    height: 66px;
-    width: 20px;
-    -webkit-filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.15));
-            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.15));
-}
+/*.trigger__wrapper {*/
+/*    position: fixed;*/
+/*    top: 50%;*/
+/*    transform: translateY(-50%);*/
+/*    left: -1px;*/
+/*    z-index: 5;*/
+/*    height: 66px;*/
+/*    width: 20px;*/
+/*    -webkit-filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.15));*/
+/*            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.15));*/
+/*}*/
 
-.trigger__wrapper--uncollapsed {
-    left: 208px;
-}
-
-.trigger__wrapper--collapsed {
-    left: 64px;
-}
-
-.trigger {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 66px;
-    width: 20px;
-    background-color: #fff;
-    -webkit-clip-path: polygon(0 0, 100% 15%, 100% 85%, 0 100%);
-            clip-path: polygon(0 0, 100% 15%, 100% 85%, 0 100%);
-    cursor: pointer;
-}
 
 .exit {
     position: absolute;
@@ -96,14 +113,23 @@
 }
 
 .body-layout {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.page-content {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
     width: 100%;
 }
 
 .main {
+    flex-grow: 2;
     padding: 24px;
-    flex: 2;
 }
 
 .actions {
@@ -158,9 +184,12 @@
     }
 
     .trigger__wrapper {
-        position: absolute;
-        top: 24px;
-        transform: none;
+        display: flex;
+        align-items: center;
+        height: 100%;
+        /*position: absolute;*/
+        /*top: 24px;*/
+        /*transform: none;*/
     }
 
     .trigger__wrapper--uncollapsed {

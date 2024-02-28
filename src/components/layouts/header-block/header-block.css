@@ -1,8 +1,10 @@
 @import "../../../styles/reset.css";
 
 .header {
+    margin-left: -20px;
     padding: 12px 24px 20px;
-    width: 100%;
+    min-height: 168px;
+    width: calc(100% + 20px);
     background-color: var(--primary-light-1);
 }
 

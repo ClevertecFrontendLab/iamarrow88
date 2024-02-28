@@ -4,9 +4,10 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    margin-left: -20px;
     padding: 41px 24px 41px 39px;
     height: 209px;
-    width: 100%;
+    width: calc(100% + 20px);
 }
 
 .reviews-link {
