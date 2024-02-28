@@ -1,6 +1,8 @@
 import './confirm-email.css';
 import VerificationInput from "react-verification-input";
 import {AttentionIcon} from "@constants/icons/icons.tsx";
+import {StoreInterface} from "@redux/config/redux-types.ts";
+import {storeActionTypes} from "@redux/config/redux-constants.ts";
 
 
 const ConfirmEmail = () => {

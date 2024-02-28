@@ -22,6 +22,8 @@ import {Link, useNavigate} from "react-router-dom";
 import {useSelector, useDispatch } from "react-redux";
 import {storeActionTypes, StoreInterface} from "../../customTypes/content-types.ts";
 import {Paths} from "../../routes/paths.ts";
+import {StoreInterface} from "@redux/config/redux-types.ts";
+import {storeActionTypes} from "@redux/config/redux-constants.ts";
 
 export const MainPage: React.FC = () => {
     const isBigMobile = useMediaQuery({ query: '(min-width: 768px)' });
@@ -30,13 +32,13 @@ export const MainPage: React.FC = () => {
     const isTablet = useMediaQuery({ query: '(min-width: 834px)' });
     const navigate = useNavigate();
 
-    const isLoggedIn = useSelector((state: StoreInterface) => state.isLoggedIn );
-    console.log(isLoggedIn);
+    const isLogin = useSelector((state: StoreInterface) => state.isLogin );
+    console.log(isLogin);
     const menuAction = (value: boolean ): void => {
         setCollapsed(value);
     };
 
-    const exitButtonName = collapsed ? '' : isLoggedIn ? 'Выйти' : 'Войти';
+    const exitButtonName = collapsed ? '' : isLogin ? 'Выйти' : 'Войти';
     const dispatch = useDispatch();
     function logOut() {
         dispatch({ type: storeActionTypes.loginFalse});

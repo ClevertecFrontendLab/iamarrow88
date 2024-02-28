@@ -8,8 +8,10 @@ import {
 } from "@constants/icons/icons.tsx";
 import {ReactElement} from "react";
 import {Button} from "antd";
-import { ErrorMessagesInterface } from "../../../../../customTypes/content-types.ts";
+import {ErrorMessagesInterface} from "../../../../../customTypes/content-types.ts";
 import {useNavigate} from "react-router-dom";
+import {StoreInterface} from "@redux/config/redux-types.ts";
+import {storeActionTypes} from "@redux/config/redux-constants.ts";
 
 const ErrorWindow = ({resultData}: {resultData: ErrorMessagesInterface}) => {
     const navigate = useNavigate();
