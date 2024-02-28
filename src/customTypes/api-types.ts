@@ -9,4 +9,6 @@ export interface ApiInterface {
         confirmPassword?: '',
         code?: ''
     },
-    responseCodes: Record<number | string, [string, string]>}
+    responseCodes: Record<number | string, [string, string]>,
+    additionalCondition?: Record<number, [string, string, string]>
+}

@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import {Navigate, Route, Routes} from 'react-router-dom';
 import {Paths} from "./paths.ts";
 import {MainPage} from "@pages/main-page";
 import AuthPage from "@pages/auth-page/auth-page.tsx";
@@ -12,7 +12,8 @@ import resultMessages from "@constants/content/resultMessages/resultMessages.ts"
 
 export const routes = (
     <Routes>
-        <Route path={Paths.Root}>
+        <Route path={Paths.Root} element={<Navigate to={Paths.MainPage}/> }>
+        </Route>
             <Route path={Paths.MainPage} element={<MainPage/>} />
             <Route path={Paths.Auth} element={<AuthPage/>}>
                 <Route index={true} element={<EntryWindow children={<Login />} selectedTab={'/'} /> } />
@@ -33,8 +34,5 @@ export const routes = (
                 <Route path={Paths.ChangePasswordError} element={<ErrorWindow resultData={resultMessages.recoveryServerError} />} />
                 <Route path={Paths.ChangePasswordSuccess} element={<ErrorWindow resultData={resultMessages.recoverySuccess} />} />
             </Route>
-        </Route>
-
-
     </Routes>
 )

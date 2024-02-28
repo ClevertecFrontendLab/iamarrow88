@@ -38,11 +38,14 @@ export const API_URLs: Record<string, ApiInterface> = {
             'email': '',
         },
         responseCodes: {
-            200: ['', 'Ok'],
-            400: ['', 'request error'],
-            404: ['', 'user is not found'],
-            429: ['', 'too many requests'],
-            500: ['', 'server error'],
+            200: ['/auth/confirm-email', 'Ok'],
+            400: ['/result/error-check-email', 'request error'],
+            404: ['/result/error-check-email-no-exist', 'user is not found'],
+            429: ['/result/error-check-email', 'too many requests'],
+            500: ['/result/error-check-email', 'server error'],
+        },
+        additionalCondition: {
+            404: [ 'message', 'Email не найден', '/result/error-check-email'],
         }
     },
     confirmEmail: {
@@ -53,10 +56,10 @@ export const API_URLs: Record<string, ApiInterface> = {
             'code': '',
         },
         responseCodes: {
-            200: ['', 'Ok'],
-            400: ['', 'request error'],
-            429: ['', 'too many requests'],
-            500: ['', 'server error'],
+            200: ['/auth/change-password', 'Ok'],
+            // 400: ['/result/error-change-password', 'request error'],
+            // 429: ['/result/error-change-password', 'too many requests'],
+            // 500: ['/result/error-change-password', 'server error'],
         }
     },
     changePassword: {
@@ -67,10 +70,10 @@ export const API_URLs: Record<string, ApiInterface> = {
             'confirmPassword': '',
         },
         responseCodes: {
-            200: ['', 'Ok'],
-            400: ['', 'request error'],
-            429: ['', 'too many requests'],
-            500: ['', 'server error'],
+            200: ['/result/success-change-password', 'Ok'],
+            400: ['/result/error-change-password', 'request error'],
+            429: ['/result/error-change-password', 'too many requests'],
+            500: ['/result/error-change-password', 'server error'],
         }
     }
 }

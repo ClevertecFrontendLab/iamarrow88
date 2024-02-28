@@ -5,7 +5,7 @@ export enum Paths {
     Auth = '/auth', //таб "Вход". if (loggedIn) redirect to /main
     //подразделы:
     ConfirmEmail = 'confirm-email', //ввод кода для восстановления пароля
-    ChangePassword = 'change-password', //ввод нового пароля
+    ChangePassword = '/auth/change-password', //ввод нового пароля
 
     //Результаты
     Result = 'result/', //прямой переход не возможен на этот роут и его дочерние роуты

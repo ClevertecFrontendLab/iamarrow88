@@ -62,12 +62,12 @@ const Registration = () => {
                             message: '',
                         },{
                             pattern: emailCheckRegex,
-                            message: 'Please enter a valid e-mail',
+                            message: '',
                         }
                     ]}
                     className="email"
                 >
-                    <Input
+                    <Input data-test-id='registration-email'
                         addonBefore="e-mail"
                     />
                 </Form.Item>
@@ -87,7 +87,7 @@ const Registration = () => {
                     extra="Пароль не менее 8 символов с заглавной буквой и цифрой"
 
                 >
-                    <Input.Password
+                    <Input.Password data-test-id='registration-password'
                         placeholder="Пароль"
                     />
                 </Form.Item>
@@ -108,7 +108,7 @@ const Registration = () => {
                                })
                            ]}>
 
-                    <Input.Password
+                    <Input.Password data-test-id='registration-confirm-password'
                         placeholder="Повторите пароль"
                     />
                 </Form.Item>
@@ -116,7 +116,7 @@ const Registration = () => {
 
                 <div className="buttons">
                     <Form.Item name="submit">
-                        <Button type="primary" htmlType="submit">
+                        <Button type="primary" htmlType="submit" data-test-id='registration-submit-button'>
                             Войти
                         </Button>
                     </Form.Item>

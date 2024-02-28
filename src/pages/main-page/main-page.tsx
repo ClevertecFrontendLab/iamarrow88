@@ -18,9 +18,8 @@ import MenuBlock from '@components/blocks/main/menu/menu-block.tsx';
 import ExitIcon from '@components/icons/exit-icon/exit-icon.tsx';
 import DynamicIcon from '@components/icons/dynamic-icon/dynamic-icon.tsx';
 import './main-page.css';
-import {Link, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import {useSelector, useDispatch } from "react-redux";
-import {storeActionTypes, StoreInterface} from "../../customTypes/content-types.ts";
 import {Paths} from "../../routes/paths.ts";
 import {StoreInterface} from "@redux/config/redux-types.ts";
 import {storeActionTypes} from "@redux/config/redux-constants.ts";
@@ -75,45 +74,7 @@ export const MainPage: React.FC = () => {
                     theme={'light'}
                 >
                     <Logo isCollapsed={collapsed} className={'logo'}/>
-                    <div className="buttons-nav">
-                        <Button type="primary">
-                            <Link to='/auth'>Авторизация</Link>
-                        </Button>
-                        <Button type="primary">
-                            <Link to='/auth/registration'>Registration</Link>
-                        </Button>
-                        <Button type="primary">
-                            <Link to='/auth/confirm-email'>ConfirmEmail</Link>
-                        </Button>
 
-                        <Button type="primary">
-                            <Link to='/auth/change-password'>ChangePassword</Link>
-                        </Button>
-                        <Button type="primary">
-                            <Link to='/result/error-login'>LoginError</Link>
-                        </Button>
-                        <Button type="primary">
-                            <Link to='/result/success'>RegistrationSuccess</Link>
-                        </Button>
-                        <Button type="primary">
-                            <Link to='/result/error-user-exist'>RegistrationErrorUserExist</Link>
-                        </Button>
-                        <Button type="primary">
-                            <Link to='/result/error'>RegistrationError</Link>
-                        </Button>
-                        <Button type="primary">
-                            <Link to='/result/error-check-email-no-exist'>RecoveryNoExist</Link>
-                        </Button>
-                        <Button type="primary">
-                            <Link to='/result/error-check-email'>ErrorLogin</Link>
-                        </Button>
-                        <Button type="primary">
-                            <Link to='/result/error-change-password'>ChangePasswordError</Link>
-                        </Button>
-                        <Button type="primary">
-                            <Link to='/result/success-change-password'>ChangePasswordSuccess</Link>
-                        </Button>
-                    </div>
                     <MenuBlock
                         isCollapsed={collapsed}
                         itemsData={menuItems}

@@ -1,7 +1,7 @@
 import DynamicIcon from '@components/icons/dynamic-icon/dynamic-icon.tsx';
 import { Menu } from 'antd';
 import './menu-block.css';
-import { MenuItemInterface, itemInstanseInterface } from '../../../../customTypes/content-types.ts';
+import { MenuItemInterface, itemInstanceInterface } from '../../../../customTypes/content-types.ts';
 
 const MenuBlock = ({
     isCollapsed,
@@ -13,7 +13,7 @@ const MenuBlock = ({
     isBigMobile: boolean;
 }) => {
     const itemsArray = itemsData.map((itemData) => {
-        const item: itemInstanseInterface = {
+        const item: itemInstanceInterface = {
             key: itemData.id,
             label: `${isCollapsed ? '' : itemData.label}`,
             title: `${itemData.label}`,
