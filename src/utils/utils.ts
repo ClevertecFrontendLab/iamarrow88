@@ -1,7 +1,11 @@
-import {ApiInterface} from "../customTypes/api-types.ts";
+import { ApiInterface } from "../customTypes/api-types.ts";
 
 export function makeUrl(baseUrl: string, endpoint: string) {
     return baseUrl + endpoint;
+}
+
+export function checkIsLogginIn() {
+    return !!localStorage.getItem('accessToken');
 }
 //Record<number, string>
 

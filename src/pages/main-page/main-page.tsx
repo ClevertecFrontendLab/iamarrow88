@@ -31,7 +31,8 @@ export const MainPage: React.FC = () => {
     const isTablet = useMediaQuery({ query: '(min-width: 834px)' });
     const navigate = useNavigate();
 
-    const isLogin = useSelector((state: StoreInterface) => state.isLogin );
+    const isLogin = useSelector((state: StoreInterface) => state
+    );
     console.log(isLogin);
     const menuAction = (value: boolean ): void => {
         setCollapsed(value);
