@@ -14,15 +14,4 @@
     margin-bottom: 10px;
 }
 
-@media (max-width: 540px) {
-    .footer {
-        flex-direction: column-reverse;
-        gap: 33px;
-        padding: 0 16px 42px;
-        height: auto;
-    }
 
-    .reviews-link {
-        margin: 0 auto;
-    }
-}

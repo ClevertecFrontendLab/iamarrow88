@@ -1,4 +1,4 @@
-export enum storeActionTypes {
+export enum StoreActionTypes {
     loginTrue = "login/true",
     loginFalse = "login/false",
     emailWrite = "authData/email/write",

@@ -20,5 +20,6 @@ export enum Paths {
 
     Registration = 'registration', // 'Registration' tab. if (!loggedIn)
 
+    Feedbacks = '/feedbacks',
 
 }

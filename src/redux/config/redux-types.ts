@@ -1,4 +1,4 @@
-import {storeActionTypes} from "./redux-constants.ts";
+import {StoreActionTypes} from "./redux-constants.ts";
 import type {Reducer} from "redux";
 import {RouterState} from "redux-first-history/src/reducer.ts";
 
@@ -16,15 +16,18 @@ export interface PageStateInterface {
     isLoading: boolean,
 }
 
+interface ProjectRouterState extends RouterState {
+    previousLocations: RouterState[]
+}
 export interface StoreInterface {
     auth: AuthStateInterface;
     userData: UserDataStateInterface;
     page: PageStateInterface;
-    router: Reducer<RouterState> | null;
+    router: Reducer<ProjectRouterState>;
 }
 
 export interface ActionsInterface {
-    type: storeActionTypes,
+    type: StoreActionTypes,
     payload: string
 }
 

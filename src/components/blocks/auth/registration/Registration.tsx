@@ -9,9 +9,19 @@ import {getPureMap, makeUrl} from "@utils/utils.ts";
 import {API_URLs} from "@constants/common/api-urls.ts";
 import {AxiosResponse} from "axios";
 import {indexesForPureFunctions} from "@constants/common/enums.ts";
+import {useEffect} from "react";
+import {Paths} from "../../../../routes/paths.ts";
+import {useAuth} from "../../../../provider/AuthProvider.tsx";
 const Registration = () => {
 
-    const navigate = useNavigate()
+    const { token } = useAuth();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (token) {
+            navigate(Paths.MainPage);
+        }
+    }, [token]);
 
     function navToNextPage(status: number, registrationMap: Record<string, string>) {
         for (let i = 0; i < Object.keys(registrationMap).length; i += 1) {

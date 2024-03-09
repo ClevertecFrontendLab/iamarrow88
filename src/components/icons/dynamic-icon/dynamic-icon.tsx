@@ -9,10 +9,10 @@ import {
     MenuUnfoldOutlined,
     MenuFoldOutlined,
 } from '@ant-design/icons';
-import ExitIcon from '@components/icons/exit-icon/exit-icon.tsx';
-import CustomIcon from '@components/icons/custom-icon/custom-icon.tsx';
+
 
 import {allProps, iconPropsInterface} from '../../../customTypes/content-types.ts';
+import {Achievements, CalendarIconPath} from "@constants/icons/icons.tsx";
 
 const DynamicIcon = ({
     type,
@@ -44,11 +44,7 @@ const DynamicIcon = ({
     switch (type) {
         case 'calendar': {
             return (
-                <CustomIcon
-                    iconName='calendar'
-                    props={{ ...filteredProps }}
-                    className={className}
-                />
+                <CalendarIconPath />
             );
         }
         case 'HeartFilled': {
@@ -59,15 +55,8 @@ const DynamicIcon = ({
         }
         case 'achievements': {
             return (
-                <CustomIcon
-                    iconName='achievements'
-                    props={{ ...filteredProps }}
-                    className={className}
-                />
+                <Achievements />
             );
-        }
-        case 'ExitIcon': {
-            return <ExitIcon {...filteredProps} className={className} />;
         }
         case 'SettingOutlined': {
             return <SettingOutlined {...filteredProps} className={className} />;

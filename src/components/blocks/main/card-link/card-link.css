@@ -43,35 +43,3 @@
         fill: var(--primary-light-6);
     }
 }
-
-@media (max-width: 1020px) {
-    .card-link--uncollapsed {
-        gap: normal;
-        min-height: 122px;
-    }
-
-    .card-link--collapsed,
-    .card-link--uncollapsed {
-        justify-content: space-between;
-    }
-
-    .card-link--collapsed .card-link__title,
-    .card-link--uncollapsed .card-link__title {
-        align-self: flex-start;
-        text-align: left;
-    }
-}
-
-@media (max-width: 540px) {
-    .card-link--collapsed .card-link__title,
-    .card-link--uncollapsed .card-link__title {
-        align-self: center;
-        text-align: center;
-    }
-
-    .card-link--uncollapsed,
-    .card-link--collapsed {
-        height: 101px;
-        min-height: 101px;
-    }
-}

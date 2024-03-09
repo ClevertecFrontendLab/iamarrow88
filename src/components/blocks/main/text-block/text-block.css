@@ -37,17 +37,3 @@
     font-size: 20px;
     line-height: 130%;
 }
-
-@media (max-width: 1020px) {
-    .pros,
-    .about {
-        width: 100%;
-    }
-}
-
-@media (max-width: 540px) {
-    .pros,
-    .about {
-        padding: 16px;
-    }
-}

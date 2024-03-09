@@ -1,1 +1,20 @@
 @import "../../../../styles/reset.css";
+
+.ant-form-item.email .ant-input-wrapper.ant-input-group,
+.ant-form-item.password .ant-input-affix-wrapper.ant-input-password.input.ant-input-affix-wrapper-status-error {
+    height: 40px;
+}
+
+.password.ant-form-item-has-error {
+    margin-bottom: 35px;
+}
+
+.password.ant-form-item-has-error .ant-col.ant-form-item-control {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.ant-form-item-margin-offset {
+    margin-bottom: auto;
+}

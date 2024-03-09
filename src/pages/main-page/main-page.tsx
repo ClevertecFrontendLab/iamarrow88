@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { Button, Layout, Space } from 'antd';
 const { Content, Sider } = Layout;
@@ -15,40 +15,52 @@ import FooterBlock from '@components/layouts/footer-block/footer-block.tsx';
 import TextBlock from '@components/blocks/main/text-block/text-block.tsx';
 import HeaderBlock from '@components/layouts/header-block/header-block.tsx';
 import MenuBlock from '@components/blocks/main/menu/menu-block.tsx';
-import ExitIcon from '@components/icons/exit-icon/exit-icon.tsx';
-import DynamicIcon from '@components/icons/dynamic-icon/dynamic-icon.tsx';
 import './main-page.css';
 import {useNavigate} from "react-router-dom";
-import {useSelector, useDispatch } from "react-redux";
+import {useDispatch} from "react-redux";
 import {Paths} from "../../routes/paths.ts";
-import {StoreInterface} from "@redux/config/redux-types.ts";
-import {storeActionTypes} from "@redux/config/redux-constants.ts";
+import {StoreActionTypes} from "@redux/config/redux-constants.ts";
+import {MenuFoldOutlined, MenuUnfoldOutlined} from '@ant-design/icons';
+import {ExitIcon} from "@constants/icons/icons.tsx";
+import {useAuth} from "../../provider/AuthProvider.tsx";
+import useNavHistory from "@hooks/useNavHistory.tsx";
+import isRedirectNeeded from "@utils/isRedirectNeeded.ts";
 
 export const MainPage: React.FC = () => {
     const isBigMobile = useMediaQuery({ query: '(min-width: 768px)' });
     const [collapsed, setCollapsed] = useState(false);
     const isBigTablet = useMediaQuery({ query: '(min-width: 1020px)' });
     const isTablet = useMediaQuery({ query: '(min-width: 834px)' });
+
+    const { token, updateToken } = useAuth();
     const navigate = useNavigate();
 
-    const isLogin = useSelector((state: StoreInterface) => state
-    );
-    console.log(isLogin);
-    const menuAction = (value: boolean ): void => {
-        setCollapsed(value);
-    };
+    useEffect(() => {
+        if (!token) {
+            logOut();
+        }
+    }, [token])
 
-    const exitButtonName = collapsed ? '' : isLogin ? 'Выйти' : 'Войти';
+    const { location, prevLocation } = useNavHistory();
+    console.log(location);
+    console.log(prevLocation);
+
+    const menuAction = (): void => setCollapsed(!collapsed);
+
+    const exitButtonName = collapsed
+        ? ''
+        : token ? 'Выйти' : 'Войти';
     const dispatch = useDispatch();
     function logOut() {
-        dispatch({ type: storeActionTypes.loginFalse});
+        if (updateToken) updateToken('');
+        dispatch({ type: StoreActionTypes.loginFalse});
         localStorage.removeItem('accessToken');
         navigate(Paths.Auth);
     }
 
     const exitButton = isBigMobile ? (
         <Button
-            icon={<ExitIcon className='exit__icon' style={{ fontSize: '14px' }} />}
+            icon={<ExitIcon />}
             className='button-icon-text exit__button'
             onClick={logOut}
         >
@@ -100,12 +112,14 @@ export const MainPage: React.FC = () => {
                         }
                         data-test-id={isTablet ? 'sider-switch' : 'sider-switch-mobile'}
                     >
-                        <DynamicIcon
-                            type='menu'
-                            isCollapsed={collapsed}
-                            callback={menuAction}
-                            className='trigger'
-                        />
+
+                        {collapsed
+                            ? <MenuFoldOutlined
+                                className='trigger'
+                                onClick={menuAction}/>
+                            : <MenuUnfoldOutlined
+                                className='trigger'
+                                onClick={menuAction}/>}
                     </div>
 
                     <div className="page-content">

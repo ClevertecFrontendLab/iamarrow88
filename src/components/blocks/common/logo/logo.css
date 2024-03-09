@@ -20,19 +20,3 @@
 .logo img {
     width: 100%;
 }
-
-@media (max-width: 768px) {
-    .logo {
-        max-height: 18px;
-        max-width: 72px;
-    }
-
-    .logo--collapsed {
-        display: none;
-    }
-
-    .logo--uncollapsed {
-        top: 16px;
-        left: 17px;
-    }
-}

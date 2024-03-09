@@ -18,16 +18,19 @@ import {API_URLs} from "@constants/common/api-urls.ts";
 import {AxiosResponse} from "axios";
 import {indexesForPureFunctions} from "@constants/common/enums.ts";
 import {StoreInterface} from "@redux/config/redux-types.ts";
-import {storeActionTypes} from "@redux/config/redux-constants.ts";
+import {StoreActionTypes} from "@redux/config/redux-constants.ts";
+import isRedirectNeeded from "@utils/isRedirectNeeded.ts";
+import useNavHistory from "@hooks/useNavHistory.tsx";
 
 const ErrorWindow = ({resultData}: {resultData: ErrorMessagesInterface}) => {
     const userMail = useSelector((state: StoreInterface) => state.userData.email);
     const isRemembered =  useSelector((state: StoreInterface) => state.userData.isRemembered);
-    console.log(userMail);
-    console.log(isRemembered);
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    console.log(useSelector((state: StoreInterface) => state.auth.isLogin));
+    const {location, prevLocation} = useNavHistory();
+    const router = useSelector((state: StoreInterface) => state.router);
+    console.log(router);
+    console.log(isRedirectNeeded(location, prevLocation));
 
     let iconElement: ReactElement;
 
@@ -103,7 +106,7 @@ const ErrorWindow = ({resultData}: {resultData: ErrorMessagesInterface}) => {
         }
 
         if (status === 201 || status === 200) {
-            dispatch({type: storeActionTypes.loginTrue});
+            dispatch({type: StoreActionTypes.loginTrue});
 
         }
         for (let i = 0; i < Object.keys(map).length; i += 1) {
@@ -127,7 +130,6 @@ const ErrorWindow = ({resultData}: {resultData: ErrorMessagesInterface}) => {
         }
     }
 
-    console.log(useSelector((state: StoreInterface) => state.userData));
     function nextPage() {
         if(resultData.autoRequest) {
             const body = {

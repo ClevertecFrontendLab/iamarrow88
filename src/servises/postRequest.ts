@@ -1,18 +1,7 @@
-import axios, {AxiosResponse} from "axios";
+import axios from "axios";
 
-
-export default function postRequest(url: string,
-                                    options: Record<string, string>,
-                                    callback: (response: AxiosResponse) => void) {
-    axios.post(url, {
-        "email": options.email,
-        "password": options.password
-    }, {
+export default function postRequest<T>(url: string, body: T) {
+    return axios.post(url, body, {
         withCredentials: true,
-    }).then((response) => {
-        callback(response)
-
-    }).catch((err) => {
-        callback(err.response);
-    })
+    });
 }

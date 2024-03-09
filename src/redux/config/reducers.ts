@@ -4,7 +4,7 @@ import {
     UserDataStateInterface, AuthStateInterface,
     PageStateInterface
 } from "@redux/config/redux-types.ts";
-import {storeActionTypes} from "@redux/config/redux-constants.ts";
+import {StoreActionTypes} from "@redux/config/redux-constants.ts";
 
 export function changeLogReducer(
     state = initialLoginState,
@@ -12,12 +12,12 @@ export function changeLogReducer(
 ): AuthStateInterface {
 
     switch (action.type) {
-        case storeActionTypes.loginFalse: {
+        case StoreActionTypes.loginFalse: {
             return {
                 isLogin: false
             };
         }
-        case storeActionTypes.loginTrue: {
+        case StoreActionTypes.loginTrue: {
             return {
                 isLogin: true
             };
@@ -33,16 +33,16 @@ export function changeAuthData(
     action: ActionsInterface
 ): UserDataStateInterface {
     switch (action.type) {
-        case storeActionTypes.emailWrite: {
+        case StoreActionTypes.emailWrite: {
             return {...state, email: action.payload};
         }
-        case storeActionTypes.passwordWrite: {
+        case StoreActionTypes.passwordWrite: {
             return {...state, password: action.payload };
         }
-        case storeActionTypes.isRememberedWrite: {
+        case StoreActionTypes.isRememberedWrite: {
             return {...state, isRemembered: Boolean(action.payload) };
         }
-        case storeActionTypes.codeWrite: {
+        case StoreActionTypes.codeWrite: {
             return {...state, code: action.payload };
         }
 
@@ -57,13 +57,13 @@ export function setStatusPage (
     action: ActionsInterface
 ): PageStateInterface {
     switch (action.type) {
-        case storeActionTypes.isLoadingTrue: {
+        case StoreActionTypes.isLoadingTrue: {
             return {
                 isLoading: true,
             }
         }
 
-        case storeActionTypes.isLoadingFalse: {
+        case StoreActionTypes.isLoadingFalse: {
             return {
                 isLoading: false,
             }

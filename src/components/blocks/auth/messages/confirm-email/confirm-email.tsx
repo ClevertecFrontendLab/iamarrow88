@@ -6,7 +6,7 @@ import {Paths} from "../../../../../routes/paths.ts";
 import {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {StoreInterface} from "@redux/config/redux-types.ts";
-import {storeActionTypes} from "@redux/config/redux-constants.ts";
+import {StoreActionTypes} from "@redux/config/redux-constants.ts";
 
 
 const ConfirmEmail = () => {
@@ -21,7 +21,7 @@ const ConfirmEmail = () => {
         console.log(value);
         if (value === code) {
             setIsCorrect(true);
-            dispatch({ type: storeActionTypes.codeWrite, payload: code});
+            dispatch({ type: StoreActionTypes.codeWrite, payload: code});
             navigate(Paths.ChangePassword);
         } else {
             setIsCorrect(false);

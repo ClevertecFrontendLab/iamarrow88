@@ -173,11 +173,11 @@
         display: none;
     }
 
-    .sider {
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
+    /*.sider {*/
+    /*    position: absolute;*/
+    /*    top: 0;*/
+    /*    left: 0;*/
+    /*}*/
 
     .menu--collapsed {
         display: none;

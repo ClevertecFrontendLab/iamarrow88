@@ -39,13 +39,3 @@
     gap: 3px;
     width: 50%;
 }
-
-@media (max-width: 540px) {
-    .offer {
-        width: 100%;
-    }
-
-    .offer__text {
-        text-align: center;
-    }
-}

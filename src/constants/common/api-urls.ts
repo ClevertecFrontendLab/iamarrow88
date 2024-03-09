@@ -1,8 +1,9 @@
 import {ApiInterface} from "../../customTypes/api-types.ts";
+import {baseURL} from "@constants/common/common-constants.ts";
 
 export const API_URLs: Record<string, ApiInterface> = {
     login: {
-        url: '/auth/login',
+        url: `${baseURL}/auth/login`,
         method: 'POST',
         body: {
             'email': '',
@@ -11,12 +12,13 @@ export const API_URLs: Record<string, ApiInterface> = {
         responseCodes: {
             200: ['/main', 'Ok'],
             400: ['/result/error-login', 'request error'],
+            401: ['/result/error-login', 'request error'],
             429: ['/result/error-login', 'too many requests'],
             500: ['/result/error-login', 'server error'],
         }
     },
     registration: {
-        url: '/auth/registration',
+        url: `${baseURL}/auth/registration`,
         method: 'POST',
         body: {
             'email': '',
@@ -32,7 +34,7 @@ export const API_URLs: Record<string, ApiInterface> = {
     },
 
     checkEmail: {
-        url: '/auth/check-email',
+        url: `${baseURL}/auth/check-email`,
         method: 'POST',
         body: {
             'email': '',
@@ -49,7 +51,7 @@ export const API_URLs: Record<string, ApiInterface> = {
         }
     },
     confirmEmail: {
-        url: '/auth/confirm-email',
+        url: `${baseURL}/auth/confirm-email`,
         method: 'POST',
         body: {
             'email': '',
@@ -63,7 +65,7 @@ export const API_URLs: Record<string, ApiInterface> = {
         }
     },
     changePassword: {
-        url: '/auth/change-password',
+        url: `${baseURL}/auth/change-password`,
         method: 'POST',
         body: {
             'password': '',
