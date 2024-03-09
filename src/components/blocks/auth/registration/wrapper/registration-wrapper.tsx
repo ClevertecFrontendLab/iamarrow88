@@ -6,6 +6,8 @@ import {Paths} from "../../../../../routes/paths.ts";
 import {useAuth} from "../../../../../provider/AuthProvider.tsx";
 import {API_URLs} from "@constants/common/api-urls.ts";
 import postRequest from "../../../../../servises/postRequest.ts";
+import {store} from "@redux/configure-store.ts";
+import {StoreActionTypes} from "@redux/config/redux-constants.ts";
 
 const RegistrationWrapper = () => {
     const { token } = useAuth();
@@ -36,6 +38,7 @@ const RegistrationWrapper = () => {
             .catch((error) => {
                 goToNextPage('registration', error.response.status);
             })
+            .finally(() => store.dispatch({ type: StoreActionTypes.isLoadingFalse }))
 
     }
 

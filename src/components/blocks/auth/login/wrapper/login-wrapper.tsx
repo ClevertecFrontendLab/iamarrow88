@@ -47,7 +47,8 @@ const LoginWrapper = () => {
             })
             .catch((error) => {
                 goToNextPage('login', error.response.status);
-            });
+            })
+            .finally(() => store.dispatch({ type: StoreActionTypes.isLoadingFalse }));
     }
     const RecoveryAction = (userMail: string) => {
         store.dispatch({ type: StoreActionTypes.emailWrite, payload: userMail });
