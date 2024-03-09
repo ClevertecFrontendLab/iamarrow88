@@ -6,11 +6,11 @@ import { MenuItemInterface, itemInstanceInterface } from '../../../../customType
 const MenuBlock = ({
     isCollapsed,
     itemsData,
-    isBigMobile,
+    isBigMobile
 }: {
-    isCollapsed: boolean;
-    itemsData: Array<MenuItemInterface>;
-    isBigMobile: boolean;
+    isCollapsed: boolean,
+    itemsData: Array<MenuItemInterface>,
+    isBigMobile: boolean
 }) => {
     const itemsArray = itemsData.map((itemData) => {
         const item: itemInstanceInterface = {

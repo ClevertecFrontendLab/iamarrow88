@@ -24,7 +24,6 @@ import {MenuFoldOutlined, MenuUnfoldOutlined} from '@ant-design/icons';
 import {ExitIcon} from "@constants/icons/icons.tsx";
 import {useAuth} from "../../provider/AuthProvider.tsx";
 import useNavHistory from "@hooks/useNavHistory.tsx";
-import isRedirectNeeded from "@utils/isRedirectNeeded.ts";
 
 export const MainPage: React.FC = () => {
     const isBigMobile = useMediaQuery({ query: '(min-width: 768px)' });
@@ -127,6 +126,7 @@ export const MainPage: React.FC = () => {
                             isCollapsed={collapsed}
                             isBigTablet={isBigTablet}
                             isBigMobile={isBigMobile}
+                            isTablet={isTablet}
                         />
 
                         <Content className='main'>

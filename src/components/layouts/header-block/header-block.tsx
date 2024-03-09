@@ -10,10 +10,12 @@ const HeaderBlock = ({
     isCollapsed,
     isBigTablet,
     isBigMobile,
+    isTablet
 }: {
-    isCollapsed: boolean;
-    isBigTablet: boolean;
-    isBigMobile: boolean;
+    isCollapsed: boolean,
+    isBigTablet: boolean,
+    isBigMobile: boolean,
+    isTablet: boolean
 }) => {
     const props: propsInterface = {
         className: 'title__settings button-icon-text',
@@ -22,6 +24,7 @@ const HeaderBlock = ({
     if (isBigTablet) {
         props.icon = <SettingOutlined />;
     }
+
     return (
         <Header className='header'>
             <Breadcrumb className='header__pathLine pathLine' separator={''}>
@@ -39,9 +42,11 @@ const HeaderBlock = ({
                     <h2 className={'header__title'}>{headerTitle2}</h2>
                 </div>
                 {isBigMobile ? (
-                    <Button {...props}>Настройки</Button>
+                    <Button {...props} className="settings__btn">Настройки</Button>
                 ) : (
-                    <div className='settings__outline'>
+                    isTablet
+                    ? <Button {...props} className="settings__btn">Настройки</Button>
+                        : <div className='settings__outline'>
                         {' '}
                         <Button
                             icon={
