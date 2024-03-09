@@ -13,9 +13,6 @@ import {
 } from "@utils/data-handlers/responses/responseHandlers.ts";
 import {useNavigate} from "react-router-dom";
 
-
-
-
 const LoginWrapper = () => {
     const { token, updateToken } = useAuth();
     const navigate = useNavigate();

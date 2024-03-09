@@ -3,7 +3,6 @@ import {Navigate, Route, Routes} from 'react-router-dom';
 import {Paths} from "./paths.ts";
 import {MainPage} from "@pages/main-page";
 import AuthPage from "@pages/auth-page/auth-page.tsx";
-import Registration from "@components/blocks/auth/registration/registration.tsx";
 import ChangePassword from "@components/blocks/auth/change-password/change-password.tsx";
 const  ConfirmEmail = lazy(() => import('@components/blocks/auth/messages/confirm-email/confirm-email.tsx'))
 //import ConfirmEmail from "@components/blocks/auth/messages/confirm-email/confirm-email.tsx";
@@ -12,15 +11,25 @@ import ErrorWindow from "@components/blocks/auth/messages/error-window/error-win
 import resultMessages from "@constants/content/resultMessages/resultMessages.ts";
 import LoginWrapper from "@components/blocks/auth/login/wrapper/login-wrapper.tsx";
 import Loader from "@components/UI/loader/Loader.tsx";
+import RegistrationWrapper
+    from "@components/blocks/auth/registration/wrapper/registration-wrapper.tsx";
 
-export const routes = (
+const routes = (
     <Routes>
         <Route path={Paths.Root} element={<Navigate to={Paths.MainPage}/> }>
         </Route>
             <Route path={Paths.MainPage} element={<MainPage/>} />
             <Route path={Paths.Auth} element={<AuthPage/>}>
-                <Route index={true} element={<EntryWindow children={<LoginWrapper />} selectedTab={'/'} /> } />
-                <Route path={Paths.Registration} element={<EntryWindow children={<Registration />} selectedTab={'registration'}/>} />
+                <Route index={true} element={
+                    <EntryWindow children={
+                        <LoginWrapper />
+                    } selectedTab={'/'} />
+                } />
+                <Route path={Paths.Registration} element={
+                    <EntryWindow children={
+                        <RegistrationWrapper />
+                    } selectedTab={'registration'}/>
+                } />
                 <Route path={Paths.ConfirmEmail} element={
                     <Suspense fallback={<Loader />}>
                         <ConfirmEmail />
@@ -63,17 +72,15 @@ export const routes = (
                         <ErrorWindow resultData={resultMessages.recoverySuccess} />
                     </Suspense>} />
 
-
-
-                //<Route path={Paths.RegistrationSuccess} element={<ErrorWindow resultData={resultMessages.RegistrationSuccess} />} />
-                //<Route path={Paths.RegistrationErrorUserExist} element={<ErrorWindow resultData={resultMessages.registrationError409} />} />
-                //<Route path={Paths.RegistrationOtherErrors} element={<ErrorWindow resultData={resultMessages.registrationOtherErrors} />} />
-                //<Route path={Paths.RecoveryNoExist} element={<ErrorWindow resultData={resultMessages.recoveryError404Message} />} />
-                //<Route path={Paths.ErrorLogin} element={<ErrorWindow resultData={resultMessages.recoveryOtherErrorsOrMessages} />} />
-                //<Route path={Paths.ChangePasswordError} element={<ErrorWindow resultData={resultMessages.recoveryServerError} />} />
-                //<Route path={Paths.ChangePasswordSuccess} element={<ErrorWindow resultData={resultMessages.recoverySuccess} />} />
+                {/*<Route path={Paths.RegistrationSuccess} element={<ErrorWindow resultData={resultMessages.RegistrationSuccess} />} />*/}
+                {/*<Route path={Paths.RegistrationErrorUserExist} element={<ErrorWindow resultData={resultMessages.registrationError409} />} />*/}
+                {/*<Route path={Paths.RegistrationOtherErrors} element={<ErrorWindow resultData={resultMessages.registrationOtherErrors} />} />*/}
+                {/*<Route path={Paths.RecoveryNoExist} element={<ErrorWindow resultData={resultMessages.recoveryError404Message} />} />*/}
+                {/*<Route path={Paths.ErrorLogin} element={<ErrorWindow resultData={resultMessages.recoveryOtherErrorsOrMessages} />} />*/}
+                {/*<Route path={Paths.ChangePasswordError} element={<ErrorWindow resultData={resultMessages.recoveryServerError} />} />*/}
+                {/*<Route path={Paths.ChangePasswordSuccess} element={<ErrorWindow resultData={resultMessages.recoverySuccess} />} />*/}
             </Route>
     </Routes>
 )
 
-export default Routes;
+export default routes;

@@ -2,50 +2,17 @@ import './registration.css';
 import {Button, Form, Input} from "antd";
 import {GooglePlusOutlined} from "@ant-design/icons";
 import { OnFinishRegistration } from "../../../../customTypes/content-types.ts";
-import postRequest from "../../../../servises/postRequest.ts";
-import {baseURL, emailCheckRegex, passwordCheckRegex} from "@constants/common/common-constants.ts";
-import {useNavigate} from "react-router-dom";
-import {getPureMap, makeUrl} from "@utils/utils.ts";
-import {API_URLs} from "@constants/common/api-urls.ts";
-import {AxiosResponse} from "axios";
-import {indexesForPureFunctions} from "@constants/common/enums.ts";
-import {useEffect} from "react";
-import {Paths} from "../../../../routes/paths.ts";
-import {useAuth} from "../../../../provider/AuthProvider.tsx";
-const Registration = () => {
+import {emailCheckRegex, passwordCheckRegex} from "@constants/common/common-constants.ts";
 
-    const { token } = useAuth();
-    const navigate = useNavigate();
-
-    useEffect(() => {
-        if (token) {
-            navigate(Paths.MainPage);
-        }
-    }, [token]);
-
-    function navToNextPage(status: number, registrationMap: Record<string, string>) {
-        for (let i = 0; i < Object.keys(registrationMap).length; i += 1) {
-            if (status === +Object.keys(registrationMap)[i]) {
-                navigate(registrationMap[Object.keys(registrationMap)[i]]);
-                break;
-            }
-        }
-    }
+const Registration = ({registrationCallback}: {registrationCallback: (email: string, password: string) => void}) => {
     const onFinish = (value: OnFinishRegistration) => {
+        console.log(value);
         const {email, password} = value;
-        if (email) {
-            const options = {
-                email: email,
-                password: password
-            }
-            //'https://marathon-api.clevertec.ru/auth/registration'
-            postRequest(makeUrl(baseURL, API_URLs.registration.url),
-                options,
-                (response: AxiosResponse) => navToNextPage(response.status, getPureMap(API_URLs.registration, indexesForPureFunctions.urls)))
+        if (email && password) {
+            registrationCallback(email, password);
         } else {
             console.log('registration error: no email');
         }
-
     }
 
     const validateMessages = {
